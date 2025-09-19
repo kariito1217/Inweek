@@ -11,7 +11,7 @@ export default function HomePage() {
       <div
         className="
           absolute inset-0 w-full h-full bg-no-repeat 
-          bg-cover bg-center              /* móvil: cover para evitar franjas */
+          bg-contain bg-center              /* móvil: cover para evitar franjas */
           sm:bg-contain sm:bg-center      /* desktop/tablet: como lo tenías */
           md:bg-contain md:bg-center
           lg:bg-contain lg:bg-center
