@@ -9,157 +9,81 @@ import { useRef } from "react"
 
 const facultades = [
   {
-    id: "ingenieria",
-    nombre: "Facultad de Ingeniería",
+    id: "DCB",
+    nombre: "Departamento de Ciencias Básicas",
     descripcion: "Eventos de tecnología, innovación y desarrollo",
     eventos: [
       {
-        titulo: "Hackathon de IA",
-        fecha: "Lunes 15 de Abril",
-        hora: "9:00 AM - 6:00 PM",
-        lugar: "Laboratorio de Computación",
-        descripcion: "Competencia de desarrollo de soluciones con inteligencia artificial",
+        titulo: "4to Certamen de Física",
+        fecha: "Viernes 24 de Octubre",
+        hora: "--",
+        lugar: "--",
+        descripcion: "Descripción del evento.",
       },
       {
-        titulo: "Conferencia: Futuro de la Robótica",
-        fecha: "Martes 16 de Abril",
-        hora: "2:00 PM - 4:00 PM",
-        lugar: "Auditorio Principal",
-        descripcion: "Charla magistral sobre las tendencias en robótica moderna",
+        titulo: "Día mundial de la Estadística",
+        fecha: "Lunes 20 de Octubre",
+        hora: "--",
+        lugar: "--",
+        descripcion: "Descripción del evento",
       },
       {
-        titulo: "Taller de IoT",
-        fecha: "Miércoles 17 de Abril",
-        hora: "10:00 AM - 12:00 PM",
-        lugar: "Lab. de Electrónica",
-        descripcion: "Introducción práctica al Internet de las Cosas",
-      },
-      {
-        titulo: "Taller de IoT",
-        fecha: "Miércoles 17 de Abril",
-        hora: "10:00 AM - 12:00 PM",
-        lugar: "Lab. de Electrónica",
-        descripcion: "Introducción práctica al Internet de las Cosas",
-      },
-      {
-        titulo: "Conferencia: Futuro de la Robótica",
-        fecha: "Martes 16 de Abril",
-        hora: "2:00 PM - 4:00 PM",
-        lugar: "Auditorio Principal",
-        descripcion: "Charla magistral sobre las tendencias en robótica moderna",
+        titulo: "3er Concurso de Cohetería",
+        fecha: "Sábado 25 de Octubre",
+        hora: "--",
+        lugar: "--",
+        descripcion: "Descripción del evento",
       },
     ],
   },
   {
-    id: "medicina",
-    nombre: "Facultad de Medicina",
+    id: "DAI",
+    nombre: "Decanato Asociado de Investigación",
     descripcion: "Avances médicos y salud pública",
     eventos: [
       {
-        titulo: "Simposio de Telemedicina",
-        fecha: "Lunes 15 de Abril",
-        hora: "8:00 AM - 12:00 PM",
-        lugar: "Anfiteatro Médico",
-        descripcion: "Innovaciones en atención médica remota",
-      },
-      {
-        titulo: "Workshop: Cirugía Robótica",
-        fecha: "Martes 16 de Abril",
-        hora: "3:00 PM - 5:00 PM",
-        lugar: "Centro de Simulación",
-        descripcion: "Demostración de técnicas quirúrgicas avanzadas",
-      },
-      {
-        titulo: "Mesa Redonda: Bioética",
-        fecha: "Jueves 18 de Abril",
-        hora: "11:00 AM - 1:00 PM",
-        lugar: "Sala de Conferencias",
-        descripcion: "Discusión sobre dilemas éticos en medicina moderna",
+        titulo: "ECE2I",
+        fecha: "Jueves 23 de Octubre",
+        hora: "--",
+        lugar: "--",
+        descripcion: "Descripción del evento",
       },
     ],
   },
   {
-    id: "economia",
-    nombre: "Facultad de Economía",
+    id: "FEDV",
+    nombre: "Facultad de Educación a Distancia y Virtual",
     descripcion: "Finanzas, emprendimiento y economía digital",
     eventos: [
       {
-        titulo: "Foro de Fintech",
-        fecha: "Miércoles 17 de Abril",
-        hora: "9:00 AM - 1:00 PM",
-        lugar: "Aula Magna",
-        descripcion: "Tecnologías financieras y el futuro del dinero",
+        titulo: "Encuentro de Semilleros",
+        fecha: "Miércoles 22 de Octubre",
+        hora: "--",
+        lugar: "--",
+        descripcion: "Descripción del evento",
       },
       {
-        titulo: "Pitch de Startups",
-        fecha: "Jueves 18 de Abril",
-        hora: "2:00 PM - 6:00 PM",
-        lugar: "Centro de Emprendimiento",
-        descripcion: "Presentación de proyectos estudiantiles innovadores",
-      },
-      {
-        titulo: "Conferencia: Criptomonedas",
-        fecha: "Viernes 19 de Abril",
-        hora: "10:00 AM - 12:00 PM",
-        lugar: "Auditorio Económico",
-        descripcion: "Análisis del impacto de las monedas digitales",
+        titulo: "Simposio de Biomecánica y ergonomía",
+        fecha: "Miércoles 22 de Octubre",
+        hora: "--",
+        lugar: "-",
+        descripcion: "Descripción del evento",
       },
     ],
   },
   {
-    id: "artes",
-    nombre: "Facultad de Artes",
+    id: "FCE",
+    nombre: "Facultad de Ciencias Empresariales",
     descripcion: "Creatividad, diseño y expresión artística",
     eventos: [
       {
-        titulo: "Exposición de Arte Digital",
-        fecha: "Lunes 15 de Abril",
-        hora: "Todo el día",
-        lugar: "Galería Universitaria",
-        descripcion: "Muestra de obras creadas con tecnologías digitales",
+        titulo: "XVII Muestra empresarial",
+        fecha: "Viernes-Sábado 24 y 25 de Octubre",
+        hora: "--",
+        lugar: "",
+        descripcion: "Descripción del evento",
       },
-      {
-        titulo: "Taller de Realidad Virtual",
-        fecha: "Miércoles 17 de Abril",
-        hora: "4:00 PM - 6:00 PM",
-        lugar: "Estudio de Medios",
-        descripcion: "Creación de experiencias inmersivas en VR",
-      },
-      {
-        titulo: "Performance Interactivo",
-        fecha: "Viernes 19 de Abril",
-        hora: "7:00 PM - 9:00 PM",
-        lugar: "Plaza Central",
-        descripcion: "Espectáculo que combina arte y tecnología",
-      },
-    ],
-  },
-  {
-    id: "ciencias",
-    nombre: "Facultad de Ciencias",
-    descripcion: "Investigación científica y descubrimientos",
-    eventos: [
-      {
-        titulo: "Feria de Ciencias",
-        fecha: "Martes 16 de Abril",
-        hora: "9:00 AM - 5:00 PM",
-        lugar: "Patio de Ciencias",
-        descripcion: "Exhibición de proyectos de investigación estudiantil",
-      },
-      {
-        titulo: "Conferencia: Cambio Climático",
-        fecha: "Miércoles 17 de Abril",
-        hora: "11:00 AM - 1:00 PM",
-        lugar: "Auditorio de Ciencias",
-        descripcion: "Últimos avances en investigación climática",
-      },
-      {
-        titulo: "Observación Astronómica",
-        fecha: "Viernes 19 de Abril",
-        hora: "8:00 PM - 11:00 PM",
-        lugar: "Observatorio Universitario",
-        descripcion: "Noche de observación de estrellas y planetas",
-      },
+    
     ],
   },
 ]
@@ -276,7 +200,7 @@ export default function CronogramaPage() {
               <AccordionItem
                 key={facultad.id}
                 value={facultad.id}
-                ref={(el) => {accordionRefs.current[facultad.id] = el; }}
+                ref={(el) => {accordionRefs.current[facultad.id] = el;}}
                 className="bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
               >
                 <AccordionTrigger
@@ -318,15 +242,15 @@ export default function CronogramaPage() {
                             <CardTitle className="text-lg sm:text-xl text-gray-900 font-black leading-tight min-h-[2.6rem] sm:min-h-[3rem]">
                               {evento.titulo}
                             </CardTitle>
-                            <CardDescription className="text-sm sm:text-base text-gray-700 font-semibold min-h-[2.8rem]">
+                            <CardDescription className="text-sm sm:text-base text-gray-700 font-semibold leading-relaxed">
                               {evento.descripcion}
                             </CardDescription>
                           </CardHeader>
 
                           <CardContent className="space-y-2 pt-2">
-                            <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
+                            <div className="flex items-start text-sm sm:text-base text-gray-800 font-bold min-h-[1.5rem]">
                               <Calendar
-                                className={`w-5 h-5 mr-3 flex-shrink-0 ${
+                                className={`w-5 h-5 mr-3 flex-shrink-0 mt-0.5 ${
                                   facultadIndex % 3 === 0
                                     ? "text-[#b5ff00]"
                                     : facultadIndex % 3 === 1
@@ -334,11 +258,11 @@ export default function CronogramaPage() {
                                       : "text-[#ff0074]"
                                 }`}
                               />
-                              <span className="truncate">{evento.fecha}</span>
+                              <span className="break-words leading-tight">{evento.fecha}</span>
                             </div>
-                            <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
+                            <div className="flex items-start text-sm sm:text-base text-gray-800 font-bold min-h-[1.5rem]">
                               <Clock
-                                className={`w-5 h-5 mr-3 flex-shrink-0 ${
+                                className={`w-5 h-5 mr-3 flex-shrink-0 mt-0.5 ${
                                   facultadIndex % 3 === 0
                                     ? "text-[#b5ff00]"
                                     : facultadIndex % 3 === 1
@@ -346,11 +270,11 @@ export default function CronogramaPage() {
                                       : "text-[#ff0074]"
                                 }`}
                               />
-                              <span className="truncate">{evento.hora}</span>
+                              <span className="break-words leading-tight">{evento.hora}</span>
                             </div>
-                            <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
+                            <div className="flex items-start text-sm sm:text-base text-gray-800 font-bold min-h-[1.5rem]">
                               <MapPin
-                                className={`w-5 h-5 mr-3 flex-shrink-0 ${
+                                className={`w-5 h-5 mr-3 flex-shrink-0 mt-0.5 ${
                                   facultadIndex % 3 === 0
                                     ? "text-[#b5ff00]"
                                     : facultadIndex % 3 === 1
@@ -358,7 +282,7 @@ export default function CronogramaPage() {
                                       : "text-[#ff0074]"
                                 }`}
                               />
-                              <span className="truncate">{evento.lugar}</span>
+                              <span className="break-words leading-tight">{evento.lugar}</span>
                             </div>
                           </CardContent>
                         </Card>
