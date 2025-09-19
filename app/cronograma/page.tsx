@@ -40,7 +40,7 @@ const facultades = [
         lugar: "Lab. de Electrónica",
         descripcion: "Introducción práctica al Internet de las Cosas",
       },
-        {
+      {
         titulo: "Conferencia: Futuro de la Robótica",
         fecha: "Martes 16 de Abril",
         hora: "2:00 PM - 4:00 PM",
@@ -168,24 +168,40 @@ export default function CronogramaPage() {
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-cyan-300/20 to-blue-300/20 rounded-full blur-2xl animate-pulse"
-          style={{ animationDelay: "0s", animationDuration: "4s", animation: "pulse 4s infinite, float-slow 12s ease-in-out infinite" }}
+          className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-[#b5ff00]/20 to-[#00c8dc]/20 rounded-full blur-2xl animate-pulse"
+          style={{
+            animationDelay: "0s",
+            animationDuration: "4s",
+            animation: "pulse 4s infinite, float-slow 12s ease-in-out infinite",
+          }}
         />
         <div
-          className="absolute top-40 right-20 w-60 h-60 bg-gradient-to-r from-purple-300/20 to-pink-300/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "2s", animationDuration: "6s", animation: "pulse 6s infinite, float-diagonal-large 15s ease-in-out infinite" }}
+          className="absolute top-40 right-20 w-60 h-60 bg-gradient-to-r from-[#ff0074]/20 to-[#b5ff00]/20 rounded-full blur-3xl animate-pulse"
+          style={{
+            animationDelay: "2s",
+            animationDuration: "6s",
+            animation: "pulse 6s infinite, float-diagonal-large 15s ease-in-out infinite",
+          }}
         />
         <div
-          className="absolute bottom-40 left-1/4 w-50 h-50 bg-gradient-to-r from-yellow-300/20 to-orange-300/20 rounded-full blur-2xl animate-pulse"
-          style={{ animationDelay: "1s", animationDuration: "5s", animation: "pulse 5s infinite, float-circular-large 18s linear infinite" }}
+          className="absolute bottom-40 left-1/4 w-50 h-50 bg-gradient-to-r from-[#00c8dc]/20 to-[#ff0074]/20 rounded-full blur-2xl animate-pulse"
+          style={{
+            animationDelay: "1s",
+            animationDuration: "5s",
+            animation: "pulse 5s infinite, float-circular-large 18s linear infinite",
+          }}
         />
         <div
-          className="absolute bottom-20 right-1/3 w-44 h-44 bg-gradient-to-r from-green-300/20 to-teal-300/20 rounded-full blur-2xl animate-pulse"
-          style={{ animationDelay: "3s", animationDuration: "4.5s", animation: "pulse 4.5s infinite, float-wave 20s ease-in-out infinite" }}
+          className="absolute bottom-20 right-1/3 w-44 h-44 bg-gradient-to-r from-[#b5ff00]/20 to-[#00c8dc]/20 rounded-full blur-2xl animate-pulse"
+          style={{
+            animationDelay: "3s",
+            animationDuration: "4.5s",
+            animation: "pulse 4.5s infinite, float-wave 20s ease-in-out infinite",
+          }}
         />
       </div>
 
-      <div className="bg-gradient-to-r from-white/90 via-cyan-50/80 to-blue-50/90 backdrop-blur-md shadow-2xl border-b-2 border-gradient-to-r from-cyan-200 to-blue-200 relative z-10">
+      <div className="bg-gradient-to-r from-white/90 via-[#00c8dc]/10 to-[#b5ff00]/10 backdrop-blur-md shadow-2xl border-b-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 relative z-10">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 sm:space-x-4">
@@ -193,7 +209,7 @@ export default function CronogramaPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-gray-600 hover:text-white hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 transition-all duration-500 hover:scale-110 hover:shadow-lg border-2 border-transparent hover:border-cyan-300"
+                  className="text-gray-600 hover:text-white hover:bg-gradient-to-r hover:from-[#00c8dc] hover:to-[#b5ff00] transition-all duration-300 md:duration-500 hover:scale-110 hover:shadow-lg border-2 border-transparent hover:border-[#00c8dc]/50"
                 >
                   <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
                   <span className="hidden sm:inline font-bold">Volver</span>
@@ -201,12 +217,17 @@ export default function CronogramaPage() {
               </Link>
               <div>
                 <div className="flex items-center space-x-3">
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black bg-gradient-to-r from-[#00c8dc] via-[#ff0074] to-[#b5ff00] bg-clip-text text-transparent leading-[1.15] overflow-visible pb-0.5">
                     Cronograma INWEEK
                   </h1>
-                  <Sparkles className="w-8 h-8 text-cyan-500 animate-spin drop-shadow-lg" style={{ animationDuration: "3s" }} />
+                  <Sparkles
+                    className="w-8 h-8 text-[#00c8dc] animate-spin drop-shadow-lg"
+                    style={{ animationDuration: "3s" }}
+                  />
                 </div>
-                <p className="text-sm sm:text-base text-gray-700 mt-2 font-semibold">🎯 Eventos por Facultad y Departamento</p>
+                <p className="text-sm sm:text-base text-gray-700 mt-2 font-semibold">
+                  🎯 Eventos por Facultad y Departamento
+                </p>
               </div>
             </div>
           </div>
@@ -216,7 +237,7 @@ export default function CronogramaPage() {
       {/* Content */}
       <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 relative z-10">
         <div className="mb-10 sm:mb-12 text-center">
-          <div className="bg-gradient-to-r from-white/80 via-cyan-50/70 to-blue-50/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-gradient-to-r from-cyan-200 to-blue-200 hover:shadow-cyan-200/50 transition-all duration-500 hover:scale-[1.02]">
+          <div className="bg-gradient-to-r from-white/80 via-[#00c8dc]/10 to-[#b5ff00]/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 hover:shadow-[#00c8dc]/20 transition-all duration-300 md:duration-500 hover:scale-[1.02]">
             <p className="text-base sm:text-lg lg:text-xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-bold">
               ✨ Explora todos los eventos organizados durante la Semana de Innovación. Cada facultad ha preparado
               actividades únicas para enriquecer tu experiencia universitaria. ✨
@@ -224,132 +245,119 @@ export default function CronogramaPage() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8"> 
-  <Accordion type="single" collapsible className="space-y-8">
-    {facultades.map((facultad, facultadIndex) => (
-      <AccordionItem
-        key={facultad.id}
-        value={facultad.id}
-        className="bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-700 hover:scale-[1.03] group"
-      >
-        <AccordionTrigger
-          className={`px-6 sm:px-8 py-8 text-left transition-all duration-700 hover:bg-gradient-to-r group-hover:scale-[1.01] rounded-t-3xl ${
-            facultadIndex % 4 === 0
-              ? "hover:from-yellow-300/40 hover:to-yellow-200/30 hover:shadow-yellow-300/60 border-l-8 border-yellow-400"
-              : facultadIndex % 4 === 1
-              ? "hover:from-purple-300/40 hover:to-purple-200/30 hover:shadow-purple-300/60 border-l-8 border-purple-400"
-              : facultadIndex % 4 === 2
-              ? "hover:from-green-300/40 hover:to-green-200/30 hover:shadow-green-300/60 border-l-8 border-green-400"
-              : "hover:from-blue-300/40 hover:to-blue-200/30 hover:shadow-blue-300/60 border-l-8 border-blue-400"
-          } hover:shadow-2xl`}
-        >
-          <div className="flex flex-col items-start space-y-3">
-            <h3 className="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
-              {facultad.nombre}
-            </h3>
-            <p className="text-sm sm:text-base text-gray-700 font-bold">{facultad.descripcion}</p>
-          </div>
-        </AccordionTrigger>
-
-        <AccordionContent className="px-6 sm:px-8 pb-10">
-          <div className="mt-8">
-            {/* 3 por fila; sobrantes centradas; alturas igualadas por fila */}
-            <div className="flex flex-wrap justify-center items-stretch gap-6 lg:gap-8 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]">
-              {facultad.eventos.map((evento, index) => (
-                <Card
-                  key={index}
-                  className={`border-3 hover:shadow-3xl transition-all duration-700 group/card backdrop-blur-md
-                              w-full sm:w-[300px] lg:w-[320px]
-                              rounded-2xl overflow-hidden
-                              grid grid-rows-[auto,1fr,auto]
-                              ${
-                                facultadIndex % 4 === 0
-                                  ? "border-yellow-300/60 hover:border-yellow-400 hover:shadow-yellow-300/50 bg-gradient-to-br from-yellow-100/40 to-yellow-50/30"
-                                  : facultadIndex % 4 === 1
-                                  ? "border-purple-300/60 hover:border-purple-400 hover:shadow-purple-300/50 bg-gradient-to-br from-purple-100/40 to-purple-50/30"
-                                  : facultadIndex % 4 === 2
-                                  ? "border-green-300/60 hover:border-green-400 hover:shadow-green-300/50 bg-gradient-to-br from-green-100/40 to-green-50/30"
-                                  : "border-blue-300/60 hover:border-blue-400 hover:shadow-blue-300/50 bg-gradient-to-br from-blue-100/40 to-blue-50/30"
-                              }`}
+        <div className="mt-12 pt-8">
+          <Accordion type="single" collapsible className="space-y-8">
+            {facultades.map((facultad, facultadIndex) => (
+              <AccordionItem
+                key={facultad.id}
+                value={facultad.id}
+                className="bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-300 md:duration-700 hover:scale-[1.01] md:hover:scale-[1.03] group"
+              >
+                <AccordionTrigger
+                  className={`px-6 sm:px-8 py-8 text-left transition-all duration-200 md:duration-700 hover:bg-gradient-to-r group-hover:scale-[1.01] rounded-t-3xl ${
+                    facultadIndex % 3 === 0
+                      ? "hover:from-[#b5ff00]/40 hover:to-[#b5ff00]/20 hover:shadow-[#b5ff00]/60 border-l-8 border-[#b5ff00]"
+                      : facultadIndex % 3 === 1
+                        ? "hover:from-[#00c8dc]/40 hover:to-[#00c8dc]/20 hover:shadow-[#00c8dc]/60 border-l-8 border-[#00c8dc]"
+                        : "hover:from-[#ff0074]/40 hover:to-[#ff0074]/20 hover:shadow-[#ff0074]/60 border-l-8 border-[#ff0074]"
+                  } hover:shadow-2xl`}
                 >
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg sm:text-xl text-gray-900 font-black leading-tight min-h-[2.6rem] sm:min-h-[3rem]">
-                      {evento.titulo}
-                    </CardTitle>
-                    <CardDescription className="text-sm sm:text-base text-gray-700 font-semibold min-h-[2.8rem]">
-                      {evento.descripcion}
-                    </CardDescription>
-                  </CardHeader>
+                  <div className="flex flex-col items-start space-y-3">
+                    <h3 className="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-gray-800 transition-colors duration-200 md:duration-300">
+                      {facultad.nombre}
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-700 font-bold">{facultad.descripcion}</p>
+                  </div>
+                </AccordionTrigger>
 
-                  {/* bloque inferior siempre alineado */}
-                  <CardContent className="space-y-2 pt-2">
-                    <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
-                      <Calendar
-                        className={`w-5 h-5 mr-3 flex-shrink-0 ${
-                          facultadIndex % 4 === 0
-                            ? "text-yellow-600"
-                            : facultadIndex % 4 === 1
-                            ? "text-purple-600"
-                            : facultadIndex % 4 === 2
-                            ? "text-green-600"
-                            : "text-blue-600"
-                        }`}
-                      />
-                      <span className="truncate">{evento.fecha}</span>
-                    </div>
-                    <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
-                      <Clock
-                        className={`w-5 h-5 mr-3 flex-shrink-0 ${
-                          facultadIndex % 4 === 0
-                            ? "text-yellow-600"
-                            : facultadIndex % 4 === 1
-                            ? "text-purple-600"
-                            : facultadIndex % 4 === 2
-                            ? "text-green-600"
-                            : "text-blue-600"
-                        }`}
-                      />
-                      <span className="truncate">{evento.hora}</span>
-                    </div>
-                    <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
-                      <MapPin
-                        className={`w-5 h-5 mr-3 flex-shrink-0 ${
-                          facultadIndex % 4 === 0
-                            ? "text-yellow-600"
-                            : facultadIndex % 4 === 1
-                            ? "text-purple-600"
-                            : facultadIndex % 4 === 2
-                            ? "text-green-600"
-                            : "text-blue-600"
-                        }`}
-                      />
-                      <span className="truncate">{evento.lugar}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </AccordionContent>
-      </AccordionItem>
-    ))}
-  </Accordion>
-</div>
+                <AccordionContent className="px-6 sm:px-8 pb-10">
+                  <div className="mt-8">
+                    <div className="flex flex-wrap justify-center items-stretch gap-6 lg:gap-8 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]">
+                      {facultad.eventos.map((evento, index) => (
+                        <Card
+                          key={index}
+                          className={`border-3 hover:shadow-3xl transition-all duration-300 md:duration-700 group/card backdrop-blur-md
+                                      w-full sm:w-[300px] lg:w-[320px]
+                                      rounded-2xl overflow-hidden
+                                      grid grid-rows-[auto,1fr,auto]
+                                      ${
+                                        facultadIndex % 3 === 0
+                                          ? "border-[#b5ff00]/60 hover:border-[#b5ff00] hover:shadow-[#b5ff00]/50 bg-gradient-to-br from-[#b5ff00]/20 to-[#b5ff00]/10"
+                                          : facultadIndex % 3 === 1
+                                            ? "border-[#00c8dc]/60 hover:border-[#00c8dc] hover:shadow-[#00c8dc]/50 bg-gradient-to-br from-[#00c8dc]/20 to-[#00c8dc]/10"
+                                            : "border-[#ff0074]/60 hover:border-[#ff0074] hover:shadow-[#ff0074]/50 bg-gradient-to-br from-[#ff0074]/20 to-[#ff0074]/10"
+                                      }`}
+                        >
+                          <CardHeader className="pb-2">
+                            <CardTitle className="text-lg sm:text-xl text-gray-900 font-black leading-tight min-h-[2.6rem] sm:min-h-[3rem]">
+                              {evento.titulo}
+                            </CardTitle>
+                            <CardDescription className="text-sm sm:text-base text-gray-700 font-semibold min-h-[2.8rem]">
+                              {evento.descripcion}
+                            </CardDescription>
+                          </CardHeader>
 
+                          <CardContent className="space-y-2 pt-2">
+                            <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
+                              <Calendar
+                                className={`w-5 h-5 mr-3 flex-shrink-0 ${
+                                  facultadIndex % 3 === 0
+                                    ? "text-[#b5ff00]"
+                                    : facultadIndex % 3 === 1
+                                      ? "text-[#00c8dc]"
+                                      : "text-[#ff0074]"
+                                }`}
+                              />
+                              <span className="truncate">{evento.fecha}</span>
+                            </div>
+                            <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
+                              <Clock
+                                className={`w-5 h-5 mr-3 flex-shrink-0 ${
+                                  facultadIndex % 3 === 0
+                                    ? "text-[#b5ff00]"
+                                    : facultadIndex % 3 === 1
+                                      ? "text-[#00c8dc]"
+                                      : "text-[#ff0074]"
+                                }`}
+                              />
+                              <span className="truncate">{evento.hora}</span>
+                            </div>
+                            <div className="flex items-center text-sm sm:text-base text-gray-800 font-bold">
+                              <MapPin
+                                className={`w-5 h-5 mr-3 flex-shrink-0 ${
+                                  facultadIndex % 3 === 0
+                                    ? "text-[#b5ff00]"
+                                    : facultadIndex % 3 === 1
+                                      ? "text-[#00c8dc]"
+                                      : "text-[#ff0074]"
+                                }`}
+                              />
+                              <span className="truncate">{evento.lugar}</span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
 
         {/* Footer Info */}
         <div className="mt-12 sm:mt-16 text-center">
-          <Card className="bg-gradient-to-r from-cyan-200/80 to-blue-200/80 border-cyan-400/60 backdrop-blur-md shadow-3xl hover:shadow-cyan-300/60 transition-all duration-700 hover:scale-[1.03] border-3 rounded-3xl">
+          <Card className="bg-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 border-[#00c8dc]/60 backdrop-blur-md shadow-3xl hover:shadow-[#00c8dc]/60 transition-all duration-300 md:duration-700 hover:scale-[1.03] border-3 rounded-3xl">
             <CardContent className="py-8 sm:py-10">
               <div className="flex items-center justify-center space-x-3 mb-4">
-                <Sparkles className="w-6 h-6 text-cyan-700 animate-pulse" />
+                <Sparkles className="w-6 h-6 text-[#00c8dc] animate-pulse" />
                 <h3 className="text-lg sm:text-xl font-black text-gray-900">¿Necesitas más información?</h3>
-                <Sparkles className="w-6 h-6 text-cyan-700 animate-pulse" style={{ animationDelay: "0.5s" }} />
+                <Sparkles className="w-6 h-6 text-[#00c8dc] animate-pulse" style={{ animationDelay: "0.5s" }} />
               </div>
               <p className="text-sm sm:text-base text-gray-800 mb-8 font-bold">
                 Contacta a los organizadores de cada facultad para detalles adicionales sobre los eventos.
               </p>
-              <Button className="bg-gradient-to-r from-cyan-700 to-blue-700 hover:from-cyan-800 hover:to-blue-800 text-white text-base sm:text-lg font-black px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 border-2 border-cyan-300">
+              <Button className="bg-gradient-to-r from-[#00c8dc] to-[#ff0074] hover:from-[#00c8dc]/90 hover:to-[#ff0074]/90 text-white text-base sm:text-lg font-black px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 md:duration-500 hover:scale-110 border-2 border-[#00c8dc]/50">
                 Contactar Organizadores
               </Button>
             </CardContent>
