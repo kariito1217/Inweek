@@ -15,7 +15,7 @@ export default function HomePage() {
                    lg:bg-contain lg:bg-center
                    xl:bg-cover xl:bg-center"
         style={{
-          backgroundImage: "url('/images/inweek-banner.jpg')",
+          backgroundImage: "url('/images/bannerFinal.jpg')",
           backgroundColor: "#02c9e0",
         }}
       />
