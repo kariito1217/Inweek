@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import { ArrowLeft, Calendar, Clock, MapPin, Sparkles } from "lucide-react"
+import { useRef } from "react"
 
 const facultades = [
   {
@@ -164,6 +165,30 @@ const facultades = [
 ]
 
 export default function CronogramaPage() {
+  const accordionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+
+  const handleAccordionChange = (value: string) => {
+    if (value && accordionRefs.current[value]) {
+      setTimeout(() => {
+        const accordionElement = accordionRefs.current[value]
+        const triggerElement = accordionElement?.querySelector('[data-state="open"]') as HTMLElement
+
+        if (triggerElement) {
+          triggerElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
+        } else {
+          // Fallback to accordion element itself
+          accordionElement?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
+        }
+      }, 150)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -209,7 +234,7 @@ export default function CronogramaPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-gray-600 hover:text-white hover:bg-gradient-to-r hover:from-[#00c8dc] hover:to-[#b5ff00] transition-all duration-300 md:duration-500 hover:scale-110 hover:shadow-lg border-2 border-transparent hover:border-[#00c8dc]/50"
+                  className="text-gray-600 hover:text-white hover:bg-gradient-to-r hover:from-[#00c8dc] hover:to-[#b5ff00] transition-all duration-300 md:duration-500 md:hover:scale-110 hover:shadow-lg border-2 border-transparent hover:border-[#00c8dc]/50"
                 >
                   <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
                   <span className="hidden sm:inline font-bold">Volver</span>
@@ -237,7 +262,7 @@ export default function CronogramaPage() {
       {/* Content */}
       <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 relative z-10">
         <div className="mb-10 sm:mb-12 text-center">
-          <div className="bg-gradient-to-r from-white/80 via-[#00c8dc]/10 to-[#b5ff00]/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 hover:shadow-[#00c8dc]/20 transition-all duration-300 md:duration-500 hover:scale-[1.02]">
+          <div className="bg-gradient-to-r from-white/80 via-[#00c8dc]/10 to-[#b5ff00]/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 hover:shadow-[#00c8dc]/20 transition-all duration-300 md:duration-500 md:hover:scale-[1.02]">
             <p className="text-base sm:text-lg lg:text-xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-bold">
               ✨ Explora todos los eventos organizados durante la Semana de Innovación. Cada facultad ha preparado
               actividades únicas para enriquecer tu experiencia universitaria. ✨
@@ -246,15 +271,16 @@ export default function CronogramaPage() {
         </div>
 
         <div className="mt-12 pt-8">
-          <Accordion type="single" collapsible className="space-y-8">
+          <Accordion type="single" collapsible className="space-y-8" onValueChange={handleAccordionChange}>
             {facultades.map((facultad, facultadIndex) => (
               <AccordionItem
                 key={facultad.id}
                 value={facultad.id}
-                className="bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-300 md:duration-700 hover:scale-[1.01] md:hover:scale-[1.03] group"
+                ref={(el) => {accordionRefs.current[facultad.id] = el; }}
+                className="bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
               >
                 <AccordionTrigger
-                  className={`px-6 sm:px-8 py-8 text-left transition-all duration-200 md:duration-700 hover:bg-gradient-to-r group-hover:scale-[1.01] rounded-t-3xl ${
+                  className={`px-6 sm:px-8 py-8 text-left transition-all duration-200 md:duration-700 hover:bg-gradient-to-r rounded-t-3xl ${
                     facultadIndex % 3 === 0
                       ? "hover:from-[#b5ff00]/40 hover:to-[#b5ff00]/20 hover:shadow-[#b5ff00]/60 border-l-8 border-[#b5ff00]"
                       : facultadIndex % 3 === 1
@@ -347,7 +373,7 @@ export default function CronogramaPage() {
 
         {/* Footer Info */}
         <div className="mt-12 sm:mt-16 text-center">
-          <Card className="bg-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 border-[#00c8dc]/60 backdrop-blur-md shadow-3xl hover:shadow-[#00c8dc]/60 transition-all duration-300 md:duration-700 hover:scale-[1.03] border-3 rounded-3xl">
+          <Card className="bg-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 border-[#00c8dc]/60 backdrop-blur-md shadow-3xl hover:shadow-[#00c8dc]/60 transition-all duration-300 md:duration-700 md:hover:scale-[1.03] border-3 rounded-3xl">
             <CardContent className="py-8 sm:py-10">
               <div className="flex items-center justify-center space-x-3 mb-4">
                 <Sparkles className="w-6 h-6 text-[#00c8dc] animate-pulse" />
@@ -357,7 +383,7 @@ export default function CronogramaPage() {
               <p className="text-sm sm:text-base text-gray-800 mb-8 font-bold">
                 Contacta a los organizadores de cada facultad para detalles adicionales sobre los eventos.
               </p>
-              <Button className="bg-gradient-to-r from-[#00c8dc] to-[#ff0074] hover:from-[#00c8dc]/90 hover:to-[#ff0074]/90 text-white text-base sm:text-lg font-black px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 md:duration-500 hover:scale-110 border-2 border-[#00c8dc]/50">
+              <Button className="bg-gradient-to-r from-[#00c8dc] to-[#ff0074] hover:from-[#00c8dc]/90 hover:to-[#ff0074]/90 text-white text-base sm:text-lg font-black px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 md:duration-500 md:hover:scale-110 border-2 border-[#00c8dc]/50">
                 Contactar Organizadores
               </Button>
             </CardContent>
