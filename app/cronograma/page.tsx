@@ -83,7 +83,6 @@ const facultades = [
         lugar: "",
         descripcion: "Descripción del evento",
       },
-    
     ],
   },
 ]
@@ -95,21 +94,27 @@ export default function CronogramaPage() {
     if (value && accordionRefs.current[value]) {
       setTimeout(() => {
         const accordionElement = accordionRefs.current[value]
-        const triggerElement = accordionElement?.querySelector('[data-state="open"]') as HTMLElement
+        const triggerElement = accordionElement?.querySelector("[data-radix-accordion-trigger]") as HTMLElement
 
         if (triggerElement) {
-          triggerElement.scrollIntoView({
+          const elementTop = triggerElement.getBoundingClientRect().top + window.pageYOffset
+          const offsetPosition = elementTop - 120 // 80px above the title
+
+          window.scrollTo({
+            top: offsetPosition,
             behavior: "smooth",
-            block: "start",
           })
         } else {
-          // Fallback to accordion element itself
-          accordionElement?.scrollIntoView({
+          // Fallback: scroll to accordion element itself with offset
+          const elementTop = accordionElement!.getBoundingClientRect().top + window.pageYOffset
+          const offsetPosition = elementTop - 120
+
+          window.scrollTo({
+            top: offsetPosition,
             behavior: "smooth",
-            block: "start",
           })
         }
-      }, 150)
+      }, 100)
     }
   }
 
@@ -200,7 +205,9 @@ export default function CronogramaPage() {
               <AccordionItem
                 key={facultad.id}
                 value={facultad.id}
-                ref={(el) => {accordionRefs.current[facultad.id] = el;}}
+                ref={(el) => {
+                  accordionRefs.current[facultad.id] = el
+                }}
                 className="bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
               >
                 <AccordionTrigger
