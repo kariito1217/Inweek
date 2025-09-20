@@ -73,7 +73,7 @@ const scrollToId = (id: string) => {
   const OFFSET = (header?.offsetHeight ?? 80) + 8;
 
   // Duración típica del AccordionContent de shadcn (≈200ms) + pequeño buffer
-  const delay = 100; // prueba 220–300 si aún se “pasa”
+  const delay = 100; 
 
   window.setTimeout(() => {
     const trigger = el.querySelector("[data-radix-accordion-trigger]") as HTMLElement | null;
@@ -176,7 +176,7 @@ const scrollToId = (id: string) => {
                 className="scroll-mt-[20px] bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
               >
                 <AccordionTrigger
-                  className={`px-6 sm:px-8 py-8 text-left transition-all duration-200 md:duration-700 hover:bg-gradient-to-r rounded-t-3xl ${
+                  className={`px-6 sm:px-8 py-8 text-left md:transition-all md:duration-500 hover:bg-gradient-to-r rounded-t-3xl ${
                     facultadIndex % 3 === 0
                       ? "hover:from-[#b5ff00]/40 hover:to-[#b5ff00]/20 hover:shadow-[#b5ff00]/60 border-l-8 border-[#b5ff00]"
                       : facultadIndex % 3 === 1
@@ -192,7 +192,7 @@ const scrollToId = (id: string) => {
                   </div>
                 </AccordionTrigger>
 
-                <AccordionContent className="px-6 sm:px-8 pb-10">
+                <AccordionContent className="px-6 sm:px-8 pb-10 data-[state=open]:animate-none data-[state=closed]:animate-none md:data-[state=open]:animate-accordion-down md:data-[state=closed]:animate-accordion-up md:transition-[height] md:duration-300">
                   <div className="mt-8">
                     <div className="flex flex-wrap justify-center items-stretch gap-6 lg:gap-8 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]">
                       {facultad.eventos.map((evento, index) => (
