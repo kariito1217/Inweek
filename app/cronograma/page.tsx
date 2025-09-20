@@ -13,27 +13,9 @@ const facultades = [
     nombre: "Departamento de Ciencias Básicas",
     descripcion: "Eventos de tecnología, innovación y desarrollo",
     eventos: [
-      { 
-        titulo: "4to Certamen de Física", 
-        fecha: "Viernes 24 de Octubre", 
-        hora: "--", 
-        lugar: "--", 
-        descripcion: "Descripción del evento." 
-      },
-      { 
-        titulo: "Día mundial de la Estadística", 
-        fecha: "Lunes 20 de Octubre", 
-        hora: "--", 
-        lugar: "--", 
-        descripcion: "Descripción del evento" 
-      },
-      { 
-        titulo: "3er Concurso de Cohetería", 
-        fecha: "Sábado 25 de Octubre", 
-        hora: "--", 
-        lugar: "--", 
-        descripcion: "Descripción del evento" 
-      },
+      { titulo: "4to Certamen de Física", fecha: "Viernes 24 de Octubre", hora: "--", lugar: "--", descripcion: "Descripción del evento." },
+      { titulo: "Día mundial de la Estadística", fecha: "Lunes 20 de Octubre", hora: "--", lugar: "--", descripcion: "Descripción del evento" },
+      { titulo: "3er Concurso de Cohetería", fecha: "Sábado 25 de Octubre", hora: "--", lugar: "--", descripcion: "Descripción del evento" },
     ],
   },
   {
@@ -65,29 +47,29 @@ export default function CronogramaPage() {
   const [openId, setOpenId] = useState<string | undefined>(undefined)
 
   // Scroll suave al elemento por id. Usamos scroll-mt en el item para compensar el header fijo.
-const scrollToId = (id: string) => {
-  const el = document.getElementById(id);
-  if (!el) return;
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return
 
-  const header = document.querySelector("header") as HTMLElement | null;
-  const OFFSET = (header?.offsetHeight ?? 80) + 8;
+    const header = document.querySelector("header") as HTMLElement | null
+    const OFFSET = (header?.offsetHeight ?? 80) + 8
 
-  // Duración típica del AccordionContent de shadcn (≈200ms) + pequeño buffer
-  const delay = 100; 
+    // Menor espera en móvil (rápido), un pelín más en desktop para que termine la animación
+    const delay = window.matchMedia("(min-width: 768px)").matches ? 180 : 60
 
-  window.setTimeout(() => {
-    const trigger = el.querySelector("[data-radix-accordion-trigger]") as HTMLElement | null;
-    const target = trigger ?? el;
+    window.setTimeout(() => {
+      const trigger = el.querySelector("[data-radix-accordion-trigger]") as HTMLElement | null
+      const target = trigger ?? el
 
-    // 2 RAF para asegurar que el DOM ya aplicó alturas finales tras abrir/cerrar
-    requestAnimationFrame(() => {
+      // 2 RAF para asegurar layout final tras abrir/cerrar
       requestAnimationFrame(() => {
-        const top = target.getBoundingClientRect().top + window.scrollY - OFFSET;
-        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
-      });
-    });
-  }, delay);
-};
+        requestAnimationFrame(() => {
+          const top = target.getBoundingClientRect().top + window.scrollY - OFFSET
+          window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" })
+        })
+      })
+    }, delay)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 relative overflow-hidden">
@@ -110,7 +92,8 @@ const scrollToId = (id: string) => {
         />
       </div>
 
-      <div className="bg-gradient-to-r from-white/90 via-[#00c8dc]/10 to-[#b5ff00]/10 backdrop-blur-md shadow-2xl border-b-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 relative z-10">
+      {/* Efectos pesados solo en desktop */}
+      <div className="bg-gradient-to-r from-white/90 via-[#00c8dc]/10 to-[#b5ff00]/10 md:backdrop-blur-md md:shadow-2xl border-b-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 relative z-10">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 sm:space-x-4">
@@ -141,7 +124,7 @@ const scrollToId = (id: string) => {
       {/* Content */}
       <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 relative z-10">
         <div className="mb-10 sm:mb-12 text-center">
-          <div className="bg-gradient-to-r from-white/80 via-[#00c8dc]/10 to-[#b5ff00]/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 hover:shadow-[#00c8dc]/20 transition-all duration-300 md:duration-500 md:hover:scale-[1.02]">
+          <div className="bg-gradient-to-r from-white/80 via-[#00c8dc]/10 to-[#b5ff00]/10 md:backdrop-blur-md rounded-3xl p-8 md:shadow-2xl border-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 hover:shadow-[#00c8dc]/20 transition-all duration-300 md:duration-500 md:hover:scale-[1.02]">
             <p className="text-base sm:text-lg lg:text-xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-bold">
               ✨ Explora todos los eventos organizados durante la Semana de Innovación. Cada facultad ha preparado
               actividades únicas para enriquecer tu experiencia universitaria. ✨
@@ -155,25 +138,20 @@ const scrollToId = (id: string) => {
             collapsible
             className="space-y-8"
             value={openId}
-              onValueChange={(v) => {
+            onValueChange={(v) => {
               setOpenId((prev) => {
-                const next = v ?? undefined; // Radix manda "" o undefined al cerrar
-                // Solo scrollea si REALMENTE se abrió un item distinto
-                if (next && next !== prev) {
-                  // espera un micro-tick para que Radix aplique el estado
-                  requestAnimationFrame(() => scrollToId(`acc-${next}`));
-                }
-                return next;
-              });
+                const next = v ?? undefined
+                if (next && next !== prev) requestAnimationFrame(() => scrollToId(`acc-${next}`))
+                return next
+              })
             }}
-
           >
             {facultades.map((facultad, facultadIndex) => (
               <AccordionItem
                 key={facultad.id}
                 value={facultad.id}
-                id={`acc-${facultad.id}`} // <-- id único para hacer scroll
-                className="scroll-mt-[20px] bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
+                id={`acc-${facultad.id}`}
+                className="scroll-mt-[20px] bg-gradient-to-r from-white/80 to-white/60 md:backdrop-blur-md rounded-3xl md:shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
               >
                 <AccordionTrigger
                   className={`px-6 sm:px-8 py-8 text-left md:transition-all md:duration-500 hover:bg-gradient-to-r rounded-t-3xl ${
@@ -183,7 +161,7 @@ const scrollToId = (id: string) => {
                         ? "hover:from-[#00c8dc]/40 hover:to-[#00c8dc]/20 hover:shadow-[#00c8dc]/60 border-l-8 border-[#00c8dc]"
                         : "hover:from-[#ff0074]/40 hover:to-[#ff0074]/20 hover:shadow-[#ff0074]/60 border-l-8 border-[#ff0074]"
                   } hover:shadow-2xl`}
->
+                >
                   <div className="flex flex-col items-start space-y-3">
                     <h3 className="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-gray-800 transition-colors duration-200 md:duration-300">
                       {facultad.nombre}
@@ -192,22 +170,32 @@ const scrollToId = (id: string) => {
                   </div>
                 </AccordionTrigger>
 
-                <AccordionContent className="px-6 sm:px-8 pb-10 data-[state=open]:animate-none data-[state=closed]:animate-none md:data-[state=open]:animate-accordion-down md:data-[state=closed]:animate-accordion-up md:transition-[height] md:duration-300">
+                {/* Sin animación de altura en móvil; en desktop sí (suave). */}
+                <AccordionContent className="
+                  px-6 sm:px-8 pb-10
+                  data-[state=open]:animate-none data-[state=closed]:animate-none
+                  md:data-[state=open]:animate-accordion-down md:data-[state=closed]:animate-accordion-up
+                  md:transition-[height] md:duration-300 md:will-change-[height]
+                ">
                   <div className="mt-8">
-                    <div className="flex flex-wrap justify-center items-stretch gap-6 lg:gap-8 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]">
+                    <div
+                      className="flex flex-wrap justify-center items-stretch gap-6 lg:gap-8 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]"
+                      style={{ contentVisibility: "auto", containIntrinsicSize: "1px 900px" }}
+                    >
                       {facultad.eventos.map((evento, index) => (
                         <Card
                           key={index}
-                          className={`border-3 hover:shadow-3xl transition-all duration-300 md:duration-700 group/card backdrop-blur-md
+                          className={`border-3 md:hover:shadow-3xl transition-all duration-300 md:duration-700 group/card
                                       w-full sm:w-[300px] lg:w-[320px]
                                       rounded-2xl overflow-hidden
                                       grid grid-rows-[auto,1fr,auto]
+                                      md:backdrop-blur-md
                                       ${
                                         facultadIndex % 3 === 0
-                                          ? "border-[#b5ff00]/60 hover:border-[#b5ff00] hover:shadow-[#b5ff00]/50 bg-gradient-to-br from-[#b5ff00]/20 to-[#b5ff00]/10"
+                                          ? "border-[#b5ff00]/60 md:hover:border-[#b5ff00] md:hover:shadow-[#b5ff00]/50 bg-gradient-to-br from-[#b5ff00]/20 to-[#b5ff00]/10"
                                           : facultadIndex % 3 === 1
-                                            ? "border-[#00c8dc]/60 hover:border-[#00c8dc] hover:shadow-[#00c8dc]/50 bg-gradient-to-br from-[#00c8dc]/20 to-[#00c8dc]/10"
-                                            : "border-[#ff0074]/60 hover:border-[#ff0074] hover:shadow-[#ff0074]/50 bg-gradient-to-br from-[#ff0074]/20 to-[#ff0074]/10"
+                                            ? "border-[#00c8dc]/60 md:hover:border-[#00c8dc] md:hover:shadow-[#00c8dc]/50 bg-gradient-to-br from-[#00c8dc]/20 to-[#00c8dc]/10"
+                                            : "border-[#ff0074]/60 md:hover:border-[#ff0074] md:hover:shadow-[#ff0074]/50 bg-gradient-to-br from-[#ff0074]/20 to-[#ff0074]/10"
                                       }`}
                         >
                           <CardHeader className="pb-2">
@@ -245,7 +233,7 @@ const scrollToId = (id: string) => {
 
         {/* Footer Info */}
         <div className="mt-12 sm:mt-16 text-center">
-          <Card className="bg-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 border-[#00c8dc]/60 backdrop-blur-md shadow-3xl hover:shadow-[#00c8dc]/60 transition-all duration-300 md:duration-700 md:hover:scale-[1.03] border-3 rounded-3xl">
+          <Card className="bg-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 border-[#00c8dc]/60 md:backdrop-blur-md md:shadow-3xl hover:shadow-[#00c8dc]/60 transition-all duration-300 md:duration-700 md:hover:scale-[1.03] border-3 rounded-3xl">
             <CardContent className="py-8 sm:py-10">
               <div className="flex items-center justify-center space-x-3 mb-4">
                 <Sparkles className="w-6 h-6 text-[#00c8dc] animate-pulse" />
@@ -255,7 +243,7 @@ const scrollToId = (id: string) => {
               <p className="text-sm sm:text-base text-gray-800 mb-8 font-bold">
                 Contacta a los organizadores de cada facultad para detalles adicionales sobre los eventos.
               </p>
-              <Button className="bg-gradient-to-r from-[#00c8dc] to-[#ff0074] hover:from-[#00c8dc]/90 hover:to-[#ff0074]/90 text-white text-base sm:text-lg font-black px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 md:duration-500 md:hover:scale-110 border-2 border-[#00c8dc]/50">
+              <Button className="bg-gradient-to-r from-[#00c8dc] to-[#ff0074] hover:from-[#00c8dc]/90 hover:to-[#ff0074]/90 text-white text-base sm:text-lg font-black px-10 py-4 rounded-full md:shadow-2xl hover:shadow-3xl transition-all duration-300 md:duration-500 md:hover:scale-110 border-2 border-[#00c8dc]/50">
                 Contactar Organizadores
               </Button>
             </CardContent>
