@@ -11,7 +11,7 @@ const facultades = [
   {
     id: "DCB",
     nombre: "Departamento de Ciencias Básicas",
-    descripcion: "Eventos de tecnología, innovación y desarrollo",
+    descripcion: "",
     eventos: [
       { titulo: "4to Certamen de Física", fecha: "Viernes 24 de Octubre", hora: "--", lugar: "--", descripcion: "Descripción del evento." },
       { titulo: "Día mundial de la Estadística", fecha: "Lunes 20 de Octubre", hora: "--", lugar: "--", descripcion: "Descripción del evento" },
@@ -21,13 +21,13 @@ const facultades = [
   {
     id: "DAI",
     nombre: "Decanato Asociado de Investigación",
-    descripcion: "Avances médicos y salud pública",
+    descripcion: "",
     eventos: [{ titulo: "ECE2I", fecha: "Jueves 23 de Octubre", hora: "--", lugar: "--", descripcion: "Descripción del evento" }],
   },
   {
     id: "FEDV",
     nombre: "Facultad de Educación a Distancia y Virtual",
-    descripcion: "Finanzas, emprendimiento y economía digital",
+    descripcion: "",
     eventos: [
       { titulo: "Encuentro de Semilleros", fecha: "Miércoles 22 de Octubre", hora: "--", lugar: "--", descripcion: "Descripción del evento" },
       { titulo: "Simposio de Biomecánica y ergonomía", fecha: "Miércoles 22 de Octubre", hora: "-", lugar: "-", descripcion: "Descripción del evento" },
@@ -36,7 +36,7 @@ const facultades = [
   {
     id: "FCE",
     nombre: "Facultad de Ciencias Empresariales",
-    descripcion: "Creatividad, diseño y expresión artística",
+    descripcion: "",
     eventos: [
       { titulo: "XVII Muestra empresarial", fecha: "Viernes-Sábado 24 y 25 de Octubre", hora: "--", lugar: "", descripcion: "Descripción del evento" },
     ],
