@@ -46,30 +46,37 @@ const facultades = [
 export default function CronogramaPage() {
   const [openId, setOpenId] = useState<string | undefined>(undefined)
 
-  // Scroll suave al elemento por id. Usamos scroll-mt en el item para compensar el header fijo.
-  const scrollToId = (id: string) => {
-    const el = document.getElementById(id)
-    if (!el) return
 
-    const header = document.querySelector("header") as HTMLElement | null
-    const OFFSET = (header?.offsetHeight ?? 80) + 8
+const scrollToId = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
 
-    // Menor espera en móvil (rápido), un pelín más en desktop para que termine la animación
-    const delay = window.matchMedia("(min-width: 768px)").matches ? 180 : 60
+  const header = document.querySelector("header") as HTMLElement | null;
+  const OFFSET = (header?.offsetHeight ?? 80) + 8;
 
-    window.setTimeout(() => {
-      const trigger = el.querySelector("[data-radix-accordion-trigger]") as HTMLElement | null
-      const target = trigger ?? el
+  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  // 1) esperamos un poco para que Radix aplique open/close
+  const delay = isDesktop ? 180 : 60;
+  // 2) corrección extra por si el layout siguió cambiando (cierre del acordeón anterior, imágenes, etc.)
+  const fixDelay = isDesktop ? 220 : 120;
 
-      // 2 RAF para asegurar layout final tras abrir/cerrar
+  const align = () => {
+    const trigger = el.querySelector("[data-radix-accordion-trigger]") as HTMLElement | null;
+    const target = trigger ?? el;
+    requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const top = target.getBoundingClientRect().top + window.scrollY - OFFSET
-          window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" })
-        })
-      })
-    }, delay)
-  }
+        const top = target.getBoundingClientRect().top + window.scrollY - OFFSET;
+        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+      });
+    });
+  };
+
+  // Primer alineado
+  window.setTimeout(align, delay);
+  // Segundo alineado de “corrección”
+  window.setTimeout(align, delay + fixDelay);
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 relative overflow-hidden">
