@@ -134,7 +134,7 @@ const scrollToId = (id: string) => {
           <div className="bg-gradient-to-r from-white/80 via-[#00c8dc]/10 to-[#b5ff00]/10 md:backdrop-blur-md rounded-3xl p-8 md:shadow-2xl border-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 hover:shadow-[#00c8dc]/20 transition-all duration-300 md:duration-500 md:hover:scale-[1.02]">
             <p className="text-base sm:text-lg lg:text-xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-bold">
               ✨ Explora todos los eventos organizados durante la Semana de Innovación. Cada facultad ha preparado
-              actividades únicas para enriquecer tu experiencia universitaria. ✨
+              actividades únicas para enriquecer tu experiencia universitaria Unicamacho. ✨
             </p>
           </div>
         </div>
@@ -158,7 +158,7 @@ const scrollToId = (id: string) => {
                 key={facultad.id}
                 value={facultad.id}
                 id={`acc-${facultad.id}`}
-                className="scroll-mt-[20px] bg-gradient-to-r from-white/80 to-white/60 md:backdrop-blur-md rounded-3xl md:shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
+                className="bg-gradient-to-r from-white/80 to-white/60 md:backdrop-blur-md rounded-3xl md:shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
               >
                 <AccordionTrigger
                   className={`px-6 sm:px-8 py-8 text-left md:transition-all md:duration-500 hover:bg-gradient-to-r rounded-t-3xl ${
@@ -238,25 +238,48 @@ const scrollToId = (id: string) => {
           </Accordion>
         </div>
 
-        {/* Footer Info */}
+  {/* Footer Info */}
         <div className="mt-12 sm:mt-16 text-center">
-          <Card className="bg-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 border-[#00c8dc]/60 md:backdrop-blur-md md:shadow-3xl hover:shadow-[#00c8dc]/60 transition-all duration-300 md:duration-700 md:hover:scale-[1.03] border-3 rounded-3xl">
-            <CardContent className="py-8 sm:py-10">
-              <div className="flex items-center justify-center space-x-3 mb-4">
-                <Sparkles className="w-6 h-6 text-[#00c8dc] animate-pulse" />
-                <h3 className="text-lg sm:text-xl font-black text-gray-900">¿Necesitas más información?</h3>
-                <Sparkles className="w-6 h-6 text-[#00c8dc] animate-pulse" style={{ animationDelay: "0.5s" }} />
+          <Card className="bg-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 border-[#00c8dc]/60 backdrop-blur-md shadow-3xl hover:shadow-[#00c8dc]/60 transition-all duration-500 border-2 rounded-3xl overflow-hidden">
+            <CardContent className="py-8 sm:py-12">
+              <div className="flex flex-col items-center space-y-6">
+                {/* University Logo */}
+                <div className="flex items-center justify-center">
+                  <img
+                    src="/images/antonioJoseCamacho.png"
+                    alt="Universidad Antonio José Camacho"
+                    className="h-20 sm:h-24 lg:h-32 w-auto object-contain drop-shadow-lg"
+                  />
+                </div>
+
+                {/* University Information */}
+                <div className="text-center space-y-3">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black bg-gradient-to-r from-[#00c8dc] via-[#0066cc] to-[#004499] bg-clip-text text-transparent">
+                    Institución Universitaria Antonio José Camacho
+                  </h3>
+                  <p className="text-base sm:text-lg text-gray-700 font-semibold max-w-2xl mx-auto leading-relaxed">
+                    Formando profesionales íntegros con excelencia académica y compromiso social
+                  </p>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="flex items-center justify-center space-x-4 pt-4">
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#00c8dc] to-transparent"></div>
+                  <Sparkles className="w-6 h-6 text-[#00c8dc] animate-pulse" />
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#00c8dc] to-transparent"></div>
+                </div>
+
+                {/* Additional Info */}
+                <div className="text-sm sm:text-base text-gray-600 font-medium">
+                  <p>INWEEK 2025 </p>
+                </div>
               </div>
-              <p className="text-sm sm:text-base text-gray-800 mb-8 font-bold">
-                Contacta a los organizadores de cada facultad para detalles adicionales sobre los eventos.
-              </p>
-              <Button className="bg-gradient-to-r from-[#00c8dc] to-[#ff0074] hover:from-[#00c8dc]/90 hover:to-[#ff0074]/90 text-white text-base sm:text-lg font-black px-10 py-4 rounded-full md:shadow-2xl hover:shadow-3xl transition-all duration-300 md:duration-500 md:hover:scale-110 border-2 border-[#00c8dc]/50">
-                Contactar Organizadores
-              </Button>
             </CardContent>
           </Card>
         </div>
-      </div>
+
+      </div> 
+
 
       <style jsx>{`
         @keyframes float-slow {
