@@ -15,72 +15,84 @@ const facultades = [
     eventos: [
       { 
         titulo: "Exposición fotográfica Encuentro Cultura Visual", 
+        descripcion: "",
         fecha: "Lunes 20 de Octubre", 
         hora: "Permanente toda la semana", 
         lugar: "sala de exposiciones biblioteca" 
       },
       { 
-        titulo: "Encuentro Cultura Visual: Fotografia Creativa y Experimental", 
+        titulo: "Encuentro Cultura Visual: Fotografia Creativa y Experimental",
+        descripcion: "", 
         fecha: "Martes 21 de Octubre", 
         hora: "10:00 a.m", 
         lugar: "Estación 1: Salón 301" 
       },
       { 
-        titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", 
+        titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar",
+        descripcion: "", 
         fecha: "Martes 21 de Octubre", 
         hora: "2:00 p.m", 
         lugar: "Salón A108" 
       },
       { 
-        titulo: "Entramado Social: Contar la experiencia - Práctica en Trabajo Social", 
+        titulo: "Entramado Social: Contar la experiencia - Práctica en Trabajo Social",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre", 
         hora: "8:00 a.m", 
         lugar: "PARQUE DEL MONJE" 
       },
       { 
-        titulo: "Caleidoscopio Social: Historias que sanan: la comunicación social como punete de resiliencia comunitaria", 
+        titulo: "Caleidoscopio Social: Historias que sanan: la comunicación social como punete de resiliencia comunitaria",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre", 
         hora: "10:00 a.m", 
         lugar: "Auditorio Amarillo" 
       },
       { 
-        titulo: "Caleidoscopio Social: De la cámara al aula: miradas en práctica", 
+        titulo: "Caleidoscopio Social: De la cámara al aula: miradas en práctica",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre", 
         hora: "10:00 a.m", 
         lugar: "Salon C208" 
       },
       { 
-        titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", 
+        titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre", 
         hora: "2:00 p.m", 
         lugar: "Salón A108" 
       },
       { 
-        titulo: "Caleidoscopio Social: Narración y Deporte: Voces en Vivo", 
+        titulo: "Caleidoscopio Social: Narración y Deporte: Voces en Vivo",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre", 
         hora: "2:00 p.m", 
         lugar: "Auditorio amarillo" 
       },
       { 
-        titulo: "Caleidoscopio Social: Samaritanos de la Calle: Ecos y Relatos de Vida", 
+        titulo: "Caleidoscopio Social: Samaritanos de la Calle: Ecos y Relatos de Vida",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre", 
         hora: "2:00 p.m", 
         lugar: "Auditorio Rojo" 
       },
       { 
-        titulo: "Encuentro Cultura Visual: Convergencias Académicas: ACTITUD & SAPIENTIA Encuentro de saberes, perspectivas y disciplinas que representan la producción intelectual UniCamacho", 
+        titulo: "Encuentro Cultura Visual: Convergencias Académicas: ACTITUD & SAPIENTIA Encuentro de saberes, perspectivas y disciplinas que representan la producción intelectual UniCamacho",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre", 
         hora: "2:00 p.m", 
         lugar: "Biblioteca" 
       },
       { 
-        titulo: "Biodiversidad (miniCOP)", 
+        titulo: "Biodiversidad (miniCOP)",
+        descripcion: "", 
         fecha: "Jueves 23 de Octubre", 
         hora: "", 
         lugar: "Stand (Eco Raíces)" 
       },
       { 
-        titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-", 
+        titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-",
+        descripcion: "", 
         fecha: "Viernes 24 de Octubre", 
         hora: "9:00 a.m. - 2:00 p.m.", 
         lugar: "Av. Estación 1 - Sala MAC" 
@@ -93,85 +105,106 @@ const facultades = [
     descripcion: "Sede Sur",
     eventos: [
       { 
-        titulo: "Inauguración Coloquio", 
+        titulo: "Inauguración Coloquio",
+        descripcion: "", 
         fecha: "Lunes 20 de Octubre",
          hora: "10:00 a.m. - 1:00 p.m", 
          lugar: "Aula Maxima" 
       },
       { 
-        titulo: "Inauguración Caleidoscopio Social", 
+        titulo: "Exposición fotográfica BioDiversidad",
+        descripcion: "", 
+        fecha: "Lunes 20 de Octubre",
+         hora: "Permanente toda la semana", 
+         lugar: "Sala de exposiciones biblioteca" 
+      },      
+      { 
+        titulo: "Inauguración Caleidoscopio Social",
+        descripcion: "", 
         fecha: "Martes 21 de Octubre",
          hora: "2:00 p.m. - 5:00 p.m", 
          lugar: "Aula Maxima" 
       },
       { 
-        titulo: "Tejiendo voces y vinculos: El impacto de la comunicación en la vida comunitaria", 
+        titulo: "Tejiendo voces y vinculos: El impacto de la comunicación en la vida comunitaria",
+        descripcion: "", 
         fecha: "Martes 21 de Octubre",
         hora: "6:30 p.m", 
         lugar: "Salón AL 119" 
       },
       { 
-        titulo: "Entramado Social", 
+        titulo: "Entramado Social",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre",
         hora: "10:00 a.m. - 1:00 p.m", 
         lugar: "Aula Maxima" 
       },
       { 
-        titulo: "Camping", 
+        titulo: "Camping",
+        descripcion: "",
         fecha: "Miércoles 22 de Octubre",
         hora: "7:00 p.m", 
         lugar: "cancha de fútbol" 
       },
       { 
-        titulo: "Caleidoscopio Social:  La historia a traves del foco", 
+        titulo: "Caleidoscopio Social:  La historia a traves del foco",
+        descripcion: "", 
         fecha: "Jueves 23 de Octubre",
         hora: "10:00 a.m", 
         lugar: "Auditorio 1" 
       },
       { 
-        titulo: "Caleidoscopio Social: Tejiendo Historia con Hilos de Creatividad", 
+        titulo: "Caleidoscopio Social: Tejiendo Historia con Hilos de Creatividad",
+        descripcion: "", 
         fecha: "Jueves 23 de Octubre",
         hora: "2:00 p.m", 
         lugar: "Biblioteca" 
       },
       { 
-        titulo: "Caleidoscopio Social: Tejiendo la verdad (podcats)", 
+        titulo: "Caleidoscopio Social: Tejiendo la verdad (podcats)",
+        descripcion: "", 
         fecha: "Jueves 23 de Octubre",
         hora: "2:00 p.m", 
         lugar: "Auditorio 4" 
       },
       { 
-        titulo: "Caleidoscopio Social: ¿Y aquí como nos cuidamos?", 
+        titulo: "Caleidoscopio Social: ¿Y aquí como nos cuidamos?",
+        descripcion: "",
         fecha: "Jueves 23 de Octubre",
         hora: "6:30 p.m", 
         lugar: "Auditorio 5" 
       },
       { 
-        titulo: "Caleidoscopio Social: Ecos que Transforman", 
+        titulo: "Caleidoscopio Social: Ecos que Transforman",
+        descripcion: "", 
         fecha: "Jueves 23 de Octubre",
         hora: "10:00 a.m", 
         lugar: "Auditorio 4" 
       },
       { 
-        titulo: "Encuentro Cultura Visual: Portafolios vivos, ideas en movimiento", 
+        titulo: "Encuentro Cultura Visual: Portafolios vivos, ideas en movimiento",
+        descripcion: "", 
         fecha: "Jueves 23 de Octubre",
         hora: "10:00 a.m", 
         lugar: "Innova Lab" 
       },
       { 
-        titulo: "Entramado Social", 
+        titulo: "Entramado Social",
+        descripcion: "", 
         fecha: "Jueves 23 de Octubre",
         hora: "6:30 p.m", 
         lugar: "Aula Maxima" 
       },
       { 
-        titulo: "Acto de cierre Coloquio", 
+        titulo: "Acto de cierre Coloquio",
+        descripcion: "", 
         fecha: "Viernes 24 de Octubre",
         hora: "10:00 - 1:00 p.m", 
         lugar: "Aula Maxima" 
       },
       { 
-        titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-", 
+        titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-",
+        descripcion: "", 
         fecha: "Viernes 24 de Octubre",
         hora: "9:00 a.m", 
         lugar: "salida externa Comuna 20 y Museo Popular de Siloe" 
@@ -185,48 +218,315 @@ const facultades = [
     descripcion: "Virtual",
     eventos: [
       { 
-        titulo: "Trabajo Social y Construcción de Comunidad en los Territorios", 
+        titulo: "Trabajo Social y Construcción de Comunidad en los Territorios",
+        descripcion: "", 
         fecha: "Martes 21 de Octubre",
          hora: "10:00 a.m", 
          lugar: "Zoom" 
       },
       { 
-        titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado", 
+        titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado",
+        descripcion: "", 
         fecha: "Martes 21 de Octubre",
          hora: "6:30 p.m", 
          lugar: "Zoom" 
       },
       { 
-        titulo: "4to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual", 
+        titulo: "4to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre",
         hora: "10:00 a.m", 
         lugar: "Zoom" 
       },
       { 
-        titulo: "Presentación de trabajos de grado con menciones en Comunicación Social", 
+        titulo: "Presentación de trabajos de grado con menciones en Comunicación Social",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre",
         hora: "6:30 p.m", 
         lugar: "Zoom" 
       },
       { 
-        titulo: "Conectando con comunidades desde la investigación en Trabajo Social", 
+        titulo: "Conectando con comunidades desde la investigación en Trabajo Social",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre",
         hora: "6:30 p.m", 
         lugar: "Zoom" 
       },
       { 
-        titulo: "5to. Encuentro interinstitucional de trabajos de grado en Diseño Visual", 
+        titulo: "5to. Encuentro interinstitucional de trabajos de grado en Diseño Visual",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre",
         hora: "10:00 a.m", 
         lugar: "Zoom" 
       },
       { 
-        titulo: "Comunicar para Crecer: Estrategias Corporativas en el Campo Profesional", 
+        titulo: "Comunicar para Crecer: Estrategias Corporativas en el Campo Profesional",
+        descripcion: "", 
         fecha: "Miércoles 22 de Octubre",
         hora: "6:30 p.m", 
         lugar: "Zoom" 
       },
       ],
+  },
+   {
+    id: "FI",
+    nombre: "Facultad de Ingeniería",
+    descripcion: "Sede Norte",
+    eventos: [
+      { 
+        titulo: "Carrera de Drones con simulador",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+         hora: "10:00 a.m - 2:00 p.m", 
+         lugar: "Tarima del Agora" 
+      },
+      { 
+        titulo: "Talle de prototipado - ITMedia-Grintic",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+         hora: "6:30 p.m", 
+         lugar: "Sala de sistemas" 
+      },
+      { 
+        titulo: "Conversatorio: “La universidad del futuro, la que todos queremos”",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+         hora: "8:00 a.m - 10:00 a.m", 
+         lugar: "Auditorio 4" 
+      },
+      { 
+        titulo: "Muestra Modelos Lean Manufactúring Dispositivos exoesqueleticos Planta de procesamiento de Cacao Biocombustible apartir de la yuca",
+        descripcion: "", 
+        fecha: "Jueves 23 de Octubre",
+         hora: "10:00 a.m. - 7:00p.m", 
+         lugar: "Stand (SEGESTOP)" 
+      },      
+      ],
+  },
+   {
+    id: "FI Sur",
+    nombre: "Facultad de Ingeniería",
+    descripcion: "Sede Sur",
+    eventos: [
+      { 
+        titulo: "Taller Manufactura Digital",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+         hora: "10:00 a.m - 11:00 a.m", 
+         lugar: "Auditorio 4" 
+      },
+      { 
+        titulo: "Implementando una Arquitectura Multitenant Escalable y Eficiente con NestJS y Docker",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+        hora: "11:00 a.m - 12:00 p.m", 
+        lugar: "Auditorio 5" 
+      },
+      { 
+        titulo: "Sumobots", 
+        descripcion: "",
+        fecha: "Martes 21 de Octubre",
+        hora: "09:00 a.m - 12:00 p.m", 
+        lugar: "Carpa al lado del Aula Máxima" 
+      },
+      { 
+        titulo: "El viaje de la IA: descubre, inspírate y juega",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+        hora: "10:00 a.m - 11:00 a.m", 
+        lugar: "Sala de Sistemas" 
+      },       
+      ],
+  },
+  {
+    id: "DAI",
+    nombre: "Decanato Asociado de Investigaciones",
+    descripcion: "Norte y Sur",
+    eventos: [
+       { 
+        titulo: "Conversatorio: “La universidad del futuro, la que todos queremos”",
+        descripcion: "Sede Norte", 
+        fecha: "Martes 21 de Octubre",
+         hora: "8:00 a.m - 10:00 a.m", 
+         lugar: "Auditorio 4" 
+      },
+      { 
+        titulo: "Encuentro Cientifico y Educativo de Experiencias Investigativas - ECE2I",
+        descripcion: "Sede Norte", 
+        fecha: "Jueves 23 de Octubre",
+         hora: "8:00 a.m", 
+         lugar: "Salones" 
+      },    
+      { 
+        titulo: "Stand de grupos y Semilleros",
+        descripcion: "Sede Norte", 
+        fecha: "Jueves 23 de Octubre",
+         hora: "8:00 a.m - 8:00 p.m", 
+         lugar: "Stand (Ágora)" 
+      },  
+      { 
+        titulo: "Reconocimientos del DAI",
+        descripcion: "Sede Sur", 
+        fecha: "Lunes 20 de Octubre",
+         hora: "09:00 a.m", 
+         lugar: "Aula Maxima" 
+      },        
+    ]
+  },
+  {
+    id: "CEFTEL",
+    nombre: " Centro de Formación Técnica Laboral - CEFTEL",
+    descripcion: "Sede Norte",
+    eventos: [
+       { 
+        titulo: "Investiga, Conecta e Ilumina: La Magia de la Domótica al Alcance de tu Mano",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+         hora: "6:30 p.m", 
+         lugar: "Salón D202" 
+      },  
+    ]
+  },
+  {
+    id: "FCE y PLE",
+    nombre: "Facultad de Ciencias Empresariales & Programa de Liderazgo y Emprendimiento",
+    descripcion: "Norte y Sur",
+    eventos: [
+      { 
+        titulo: "Cátedra Empresarial",
+        descripcion: "FCE \nSede Sur", 
+        fecha: "Martes 21 de Octubre",
+         hora: "6:00 p.m - 8:00 p.m", 
+         lugar: "Aula Máxima" 
+      },  
+      { 
+        titulo: "XVII Muestra Empresarial Inauguración muestra y muestra durante todo el día (participan todas las facultades)",
+        descripcion: "FCE & PLE \nSede Norte", 
+        fecha: "Viernes 24 de Octubre",
+         hora: "10:00 a.m - 8:00 p.m", 
+         lugar: "Stand (Ágora)" 
+      },  
+      { 
+        titulo: "XVII Muestra Empresarial Unicamacho (todas las Facultades)",
+        descripcion: "FCE & PLE \nSede Norte",  
+        fecha: "Sábado 25 de Octubre",
+         hora: "8:00 a.m - 4:00 p.m", 
+         lugar: "Stand (Ágora)" 
+      },       
+    ]
+  },
+  {
+    id: "FEDV",
+    nombre: "Facultad de Educación a Distancia y Virtual",
+    descripcion: "Sede Sur",
+    eventos: [
+      { 
+        titulo: "Taller de sensibilización “Narrar para Sanar”",
+        descripcion: "", 
+        fecha: "Lunes 20 de Octubre",
+         hora: "8:00 a.m - 12:00 p.m", 
+         lugar: "Auditorio 4" 
+      },
+      { 
+        titulo: "Primer Conversatorio sobre los objetos de estudio e investigación en el programa ASST",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+        hora: "10:00 a.m - 12:00 p.m", 
+        lugar: "Auditorio 5" 
+      },
+      { 
+        titulo: "Encuentro de semilleros de investigación vinculados con los programas de Licenciatura en Educación Infantil del Distrito de Santiago de Cali",
+        descripcion: "", 
+        fecha: "Miercoles 22 de Octubre",
+        hora: "9:00 a.m - 12:00 p.m", 
+        lugar: "Auditorio 4" 
+      }, 
+      { 
+        titulo: "Simposio de Biomecánica y Ergonomía: Innovaciones para la Seguridad y Salud en el Trabajo", 
+        descripcion: "",
+        fecha: "Miercoles 22 de Octubre",
+        hora: "8:00 a.m - 12:00 p.m", 
+        lugar: "Auditorio 5" 
+      },
+      { 
+        titulo: "Taller búsqueda en bases de datos y tesauros", 
+        descripcion: "",
+        fecha: "Sábado 25 de Octubre",
+        hora: "08:00 a.m - 12:00 p.m", 
+        lugar: "Auditorio 4" 
+      },              
+
+    ]
+  },
+   {
+    id: "DCB Sur",
+    nombre: "Departamento de Ciencias Básicas",
+    descripcion: "Sede Sur",
+    eventos: [
+      { 
+        titulo: "IV Certamen de Física - Poster",
+        descripcion: "", 
+        fecha: "Viernes 24 de Octubre",
+         hora: "8:00 a.m - 8:00 p.m", 
+         lugar: "Biblioteca" 
+      },
+      { 
+        titulo: "Día de la estadistica",
+        descripcion: "", 
+        fecha: "Viernes 24 de Octubre",
+        hora: "10:00 a.m - 5:00 p.m", 
+        lugar: "Auditorio y Antigua biblioteca" 
+      },
+      { 
+        titulo: "IV Certamen de Física Conferencia",
+        descripcion: "", 
+        fecha: "Viernes 24 de Octubre",
+        hora: "2:00 p.m - 4:00 p.m", 
+        lugar: "Aula máxima " 
+      },
+      { 
+        titulo: "IV Certamen de Física Conferencia",
+        descripcion: "", 
+        fecha: "Viernes 24 de Octubre",
+        hora: "6:30 p.m - 9:30 p.m", 
+        lugar: "Aula máxima " 
+      }, 
+      { 
+        titulo: "IV Certamen de Física Ponencias",
+        descripcion: "", 
+        fecha: "Viernes 24 de Octubre",
+        hora: "11:00 a.m - 1:00 p.m", 
+        lugar: "Auditorio 4 " 
+      },
+      { 
+        titulo: "IV Certamen de Física Presentación",
+        descripcion: "", 
+        fecha: "Viernes 24 de Octubre",
+        hora: "9:00 a.m - 10:00 a.m", 
+        lugar: "Auditorio 4 " 
+      },
+      { 
+        titulo: "Conferencia conmemorativa al día mundial de la estadística",
+        descripcion: "", 
+        fecha: "Viernes 24 de Octubre",
+        hora: "10:00 a.m - 12:00 p.m", 
+        lugar: "Auditorio 5" 
+      }, 
+      { 
+        titulo: "Simulación bolsa de valores",
+        descripcion: "", 
+        fecha: "Viernes 24 de Octubre",
+        hora: "2:00 p.m - 5:00 p.m", 
+        lugar: "Espacio Antigua biblioteca " 
+      },
+      { 
+        titulo: "Concurso de coheteria 3ra edicion",
+        descripcion: "", 
+        fecha: "Sábado 25 de Octubre",
+        hora: "08:00 a.m - 12:00 p.m", 
+        lugar: "Cancha 2" 
+      },                                                  
+    ]
   },
 ]
 
@@ -396,13 +696,15 @@ export default function CronogramaPage() {
                           <CardHeader className="pb-2">
                             {/* Título con altura fija para alinear el bloque de atributos */}
                             <CardTitle
-                              className="text-lg sm:text-xl text-gray-900 font-black leading-tight break-normal [text-wrap:balance] "
+                              className="text-lg sm:text-xl whitespace-pre-line text-gray-900 font-black leading-tight break-normal [text-wrap:balance] "
                               title={evento.titulo}
                             >
                               {evento.titulo}
                             </CardTitle>
-                            {/* Descripción de la tarjeta eliminada completamente */}
-                            {/* <CardDescription>...</CardDescription> */}
+                             {evento.descripcion && (
+                            <p className="text-gray-700 text-sm sm:text-base mt-2 font-medium leading-snug tracking-tight italic whitespace-pre-line border-l-4 border-[#9b9b9b] pl-3 
+                              [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical] overflow-hidden 
+                              min-h-[2.8rem]">{evento.descripcion}</p>)}
                           </CardHeader>
                           <CardContent className="mt-auto space-y-2 pt-2">
                             <div className="flex items-start text-sm sm:text-base text-gray-800 font-bold min-h-[1.6rem]">
