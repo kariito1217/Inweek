@@ -109,7 +109,7 @@ const facultades = [
         descripcion: "", 
         fecha: "Lunes 20 de Octubre",
          hora: "10:00 a.m. - 1:00 p.m", 
-         lugar: "Aula Maxima" 
+         lugar: "Aula Máxima" 
       },
       { 
         titulo: "Exposición fotográfica BioDiversidad",
@@ -123,10 +123,10 @@ const facultades = [
         descripcion: "", 
         fecha: "Martes 21 de Octubre",
          hora: "2:00 p.m. - 5:00 p.m", 
-         lugar: "Aula Maxima" 
+         lugar: "Aula Máxima" 
       },
       { 
-        titulo: "Tejiendo voces y vinculos: El impacto de la comunicación en la vida comunitaria",
+        titulo: "Tejiendo voces y vínculos: El impacto de la comunicación en la vida comunitaria",
         descripcion: "", 
         fecha: "Martes 21 de Octubre",
         hora: "6:30 p.m", 
@@ -137,7 +137,7 @@ const facultades = [
         descripcion: "", 
         fecha: "Miércoles 22 de Octubre",
         hora: "10:00 a.m. - 1:00 p.m", 
-        lugar: "Aula Maxima" 
+        lugar: "Aula Máxima" 
       },
       { 
         titulo: "Camping",
@@ -193,21 +193,21 @@ const facultades = [
         descripcion: "", 
         fecha: "Jueves 23 de Octubre",
         hora: "6:30 p.m", 
-        lugar: "Aula Maxima" 
+        lugar: "Aula Máxima" 
       },
       { 
         titulo: "Acto de cierre Coloquio",
         descripcion: "", 
         fecha: "Viernes 24 de Octubre",
         hora: "10:00 - 1:00 p.m", 
-        lugar: "Aula Maxima" 
+        lugar: "Aula Máxima" 
       },
       { 
         titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-",
         descripcion: "", 
         fecha: "Viernes 24 de Octubre",
         hora: "9:00 a.m", 
-        lugar: "salida externa Comuna 20 y Museo Popular de Siloe" 
+        lugar: "salida externa Comuna 20 y Museo Popular de Siloé" 
       },
       ],
     },
@@ -369,7 +369,7 @@ const facultades = [
         descripcion: "Sede Sur", 
         fecha: "Lunes 20 de Octubre",
          hora: "09:00 a.m", 
-         lugar: "Aula Maxima" 
+         lugar: "Aula Máxima" 
       },        
     ]
   },
@@ -614,8 +614,7 @@ export default function CronogramaPage() {
         <div className="mb-10 sm:mb-12 text-center">
           <div className="bg-gradient-to-r from-white/80 via-[#00c8dc]/10 to-[#b5ff00]/10 md:backdrop-blur-md rounded-3xl p-8 md:shadow-2xl border-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 hover:shadow-[#00c8dc]/20 transition-all duration-300 md:duration-500 md:hover:scale-[1.02]">
             <p className="text-base sm:text-lg lg:text-xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-bold">
-              ✨ Explora todos los eventos organizados durante la Semana de Innovación. Cada facultad ha preparado
-              actividades únicas para enriquecer tu experiencia universitaria Unicamacho. ✨
+              ✨ Explora todos los eventos organizados durante la Semana de Innovación del 20 al 25 de octubre. Cada facultad ha preparado actividades únicas para enriquecer tu experiencia universitaria Unicamacho. ✨
             </p>
           </div>
         </div>
