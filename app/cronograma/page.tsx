@@ -21,7 +21,7 @@ const facultades = [
         lugar: "sala de exposiciones biblioteca" 
       },
       { 
-        titulo: "Encuentro Cultura Visual: Fotografia Creativa y Experimental",
+        titulo: "Encuentro Cultura Visual: Fotografía Creativa y Experimental",
         descripcion: "", 
         fecha: "Martes 21 de Octubre", 
         hora: "10:00 a.m", 
@@ -269,7 +269,7 @@ const facultades = [
       ],
   },
    {
-    id: "FI",
+    id: "FI Norte",
     nombre: "Facultad de Ingeniería",
     descripcion: "Sede Norte",
     eventos: [
@@ -281,7 +281,7 @@ const facultades = [
          lugar: "Tarima del Agora" 
       },
       { 
-        titulo: "Talle de prototipado - ITMedia-Grintic",
+        titulo: "Taller de prototipado - ITMedia-Grintic",
         descripcion: "", 
         fecha: "Martes 21 de Octubre",
          hora: "6:30 p.m", 
