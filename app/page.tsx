@@ -18,8 +18,8 @@ export default function HomePage() {
           xl:bg-cover xl:bg-center
         "
         style={{
-          backgroundImage: "url('/images/bannerFinal.jpg')",
-          backgroundColor: "#02c9e0",
+          backgroundImage: "url('/images/bannerFucsia.jpg')",
+          backgroundColor: "#ff0074",
         }}
       />
 
