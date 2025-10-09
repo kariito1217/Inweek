@@ -6,8 +6,6 @@ import { MousePointer2 } from "lucide-react"
 export default function HomePage() {
 
 
-
-  
   return (
     // 🔧 Altura segura en móvil + sin overscroll
     <div className="relative overflow-hidden min-h-svh min-h-[100vh] overscroll-none">
@@ -83,23 +81,21 @@ export default function HomePage() {
   />
   <div
     className="absolute top-20 right-20 w-4 h-4 rounded-full"
-    style={{
-      backgroundColor: "rgba(255, 0, 116, 0.72)",
-      boxShadow:
-        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
-      animation: "ping 3s infinite, glow-pulse 2s ease-in-out infinite",
-      mixBlendMode: "normal",
-    }}
+   style={{
+  backgroundColor: "rgba(255, 0, 116, 0.75)",
+  boxShadow: "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+  animation: "float-circular 16s linear infinite, glow-pulse 2.4s ease-in-out infinite",
+  mixBlendMode: "normal",
+}}
   />
   <div
     className="absolute bottom-20 left-20 w-5 h-5 rounded-full"
-    style={{
-      backgroundColor: "rgba(255, 0, 116, 0.6)",
-      boxShadow:
-        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
-      animation: "ping 2.5s infinite, glow-pulse 3s ease-in-out infinite",
-      mixBlendMode: "normal",
-    }}
+   style={{
+  backgroundColor: "rgba(255, 0, 116, 0.68)",
+  boxShadow: "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+  animation: "float-vertical 7s ease-in-out infinite, glow-pulse 3s ease-in-out infinite",
+  mixBlendMode: "normal",
+}}
   />
   <div
     className="absolute top-1/2 left-2 w-3 h-3 rounded-full"
@@ -177,11 +173,11 @@ export default function HomePage() {
                   transition:
                     "0.3s var(--t, 0s), background-position 0.3s calc(0.3s - var(--t, 0s)), transform 0.3s ease",
                   boxShadow: `
-                    0 0 20px rgba(0, 255, 255, 0.4),
-                    0 0 40px rgba(0, 255, 255, 0.2),
-                    0 10px 30px rgba(0, 0, 0, 0.5),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                  `,
+                  0 0 20px rgba(181, 255, 0, 0.35),
+                  0 0 40px rgba(181, 255, 0, 0.2),
+                  0 10px 30px rgba(0, 0, 0, 0.5),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.08)
+                `,
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.setProperty("--p", "100%")
@@ -192,7 +188,7 @@ export default function HomePage() {
                   e.currentTarget.style.setProperty("--t", "0s")
                 }}
               >
-                <MousePointer2 className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 animate-bounce group-hover:animate-spin" />
+               {/* <MousePointer2 className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 animate-bounce group-hover:animate-spin" />*/} 
                 <span className="relative z-10 group-hover:animate-pulse text-white">Agéndate aquí</span>
               </button>
             </Link>
@@ -233,12 +229,16 @@ export default function HomePage() {
           0% { transform: rotate(12deg); }
           100% { transform: rotate(-348deg); }
         }
-        @keyframes glow-pulse {
-          0%, 100% { 
-            box-shadow: 0 0 10px rgba(0, 188, 212, 0.5), 0 0 20px rgba(0, 188, 212, 0.3);
+      @keyframes glow-pulse {
+          0%, 100% {
+            box-shadow:
+              0 8px 18px rgba(0, 0, 0, 0.25),
+              0 0 22px rgba(255, 0, 116, 0.35);
           }
-          50% { 
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.8), 0 0 40px rgba(0, 188, 212, 0.5);
+          50% {
+            box-shadow:
+              0 10px 24px rgba(0, 0, 0, 0.3),
+              0 0 32px rgba(255, 0, 116, 0.45);
           }
         }
         @keyframes float-circular {
@@ -277,13 +277,17 @@ export default function HomePage() {
           100% { transform: translateX(0px) translateY(0px) scale(1); }
         }
 
-        .liquid-btn { animation: gentle-float 3s ease-in-out infinite; }
+        .liquid-btn { 
+        animation: gentle-float 3s ease-in-out infinite; 
+         font-family: 'Montserrat', Arial, sans-serif !important;
+        }
         .liquid-btn:hover {
           color: #000 !important; border-color: #b5ff00;
           transform: translateY(-2px) scale(1.05);
         }
        .liquid-btn span {
           transition: color 0.3s ease 0.25s; /* espera 0.25s antes de cambiar el color */
+          font-family: 'Montserrat', Arial, sans-serif !important;
         }
 
         .liquid-btn:hover span {
