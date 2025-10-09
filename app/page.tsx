@@ -169,8 +169,7 @@ export default function HomePage() {
             <Link href="/cronograma">
               <button
                 className="liquid-btn neon-pulse relative px-2 py-2 xs:px-5 xs:py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-12 lg:py-6 text-sm xs:text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white bg-black border-2 border-[#b5ff00] rounded-lg cursor-pointer overflow-visible transition-all duration-300 min-w-[180px] xs:min-w-[190px] sm:min-w-[200px] md:min-w-[260px] lg:min-w-[320px] z-10 flex items-center justify-center gap-2 sm:gap-3 transform-gpu group shadow-2xl"
-                style={{
-                  fontFamily: "var(--font-din-pro), Arial, sans-serif",
+                style={{          
                   background: `
                     linear-gradient(#b5ff00 0 0) no-repeat calc(200% - var(--p, 0%)) 100% / 200% var(--p, 0.2em),
                     linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)
