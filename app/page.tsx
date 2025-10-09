@@ -283,7 +283,14 @@ export default function HomePage() {
           color: #000 !important; border-color: #b5ff00;
           transform: translateY(-2px) scale(1.05);
         }
-        .liquid-btn:hover span { color: #000 !important; opacity: 1 !important; }
+       .liquid-btn span {
+          transition: color 0.3s ease 0.25s; /* espera 0.25s antes de cambiar el color */
+        }
+
+        .liquid-btn:hover span {
+          color: #000 !important;
+          opacity: 1 !important;
+        }
 
         .neon-pulse::before, .neon-pulse::after {
           content: ""; position: absolute; inset: -4px; border: 2px solid #b5ff00;
