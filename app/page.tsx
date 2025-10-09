@@ -4,6 +4,10 @@ import Link from "next/link"
 import { MousePointer2 } from "lucide-react"
 
 export default function HomePage() {
+
+
+
+  
   return (
     // 🔧 Altura segura en móvil + sin overscroll
     <div className="relative overflow-hidden min-h-svh min-h-[100vh] overscroll-none">
@@ -23,88 +27,133 @@ export default function HomePage() {
         }}
       />
 
-      {/* Partículas decorativas (clipeadas por overflow-hidden del root) */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-10 left-5 w-8 h-8 bg-white/40 rounded-full animate-bounce shadow-lg"
-          style={{
-            animationDelay: "0s",
-            animationDuration: "2s",
-            transform: "translateX(0px)",
-            animation: "bounce 2s infinite, float-horizontal 8s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute top-32 right-10 w-12 h-12 bg-cyan-300/50 rounded-full animate-bounce shadow-xl"
-          style={{
-            animationDelay: "1s",
-            animationDuration: "2.5s",
-            animation: "bounce 2.5s infinite, float-diagonal 10s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute bottom-40 left-8 w-6 h-6 bg-white/60 rounded-full animate-bounce shadow-lg"
-          style={{
-            animationDelay: "2s",
-            animationDuration: "1.8s",
-            animation: "bounce 1.8s infinite, float-vertical 6s ease-in-out infinite",
-          }}
-        />
+   {/* Partículas decorativas (clipeadas por overflow-hidden del root) */}
+<div className="absolute inset-0 pointer-events-none">
+  <div
+    className="absolute top-10 left-5 w-8 h-8 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.55)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "bounce 2s infinite, float-horizontal 8s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="absolute top-32 right-10 w-12 h-12 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.5)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "bounce 2.5s infinite, float-diagonal 10s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="absolute bottom-40 left-8 w-6 h-6 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.6)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "bounce 1.8s infinite, float-vertical 6s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="absolute top-60 left-1/4 w-10 h-10 rotate-45"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.4)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation:
+        "pulse 2s infinite, rotate-float 12s linear infinite, float-up-down 4s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="absolute bottom-60 right-1/4 w-8 h-8 rotate-12"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.38)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation:
+        "pulse 2.5s infinite, rotate-reverse 8s linear infinite, float-side-to-side 5s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="absolute top-20 right-20 w-4 h-4 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.72)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "ping 3s infinite, glow-pulse 2s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="absolute bottom-20 left-20 w-5 h-5 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.6)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "ping 2.5s infinite, glow-pulse 3s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="absolute top-1/2 left-2 w-3 h-3 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.78)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.25), 0 4px 10px rgba(0,0,0,0.2), 0 0 16px rgba(255,0,116,0.45)",
+      animation: "bounce 1.5s infinite, float-circular 15s linear infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="absolute top-1/3 right-5 w-7 h-7 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.52)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "pulse 3s infinite, float-zigzag 20s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="hidden sm:block absolute top-1/4 left-1/3 w-5 h-5 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.5)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "pulse 2.8s infinite, float-spiral 18s linear infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="hidden sm:block absolute bottom-1/3 right-1/3 w-6 h-6 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.54)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "pulse 3.2s infinite, float-wave 14s ease-in-out infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+  <div
+    className="hidden sm:block absolute top-3/4 left-1/5 w-4 h-4 rounded-full"
+    style={{
+      backgroundColor: "rgba(255, 0, 116, 0.58)",
+      boxShadow:
+        "0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px rgba(0,0,0,0.18), 0 0 18px rgba(255,0,116,0.35)",
+      animation: "bounce 2.2s infinite, float-orbit 16s linear infinite",
+      mixBlendMode: "normal",
+    }}
+  />
+</div>
 
-        <div
-          className="absolute top-60 left-1/4 w-10 h-10 bg-cyan-200/40 rotate-45 shadow-lg"
-          style={{
-            animationDelay: "0.5s",
-            animation:
-              "pulse 2s infinite, rotate-float 12s linear infinite, float-up-down 4s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute bottom-60 right-1/4 w-8 h-8 bg-white/30 rotate-12 shadow-lg"
-          style={{
-            animationDelay: "1.5s",
-            animation:
-              "pulse 2.5s infinite, rotate-reverse 8s linear infinite, float-side-to-side 5s ease-in-out infinite",
-          }}
-        />
 
-        <div
-          className="absolute top-20 right-20 w-4 h-4 bg-cyan-100/60 rounded-full shadow-lg"
-          style={{
-            animationDelay: "0.8s",
-            animation: "ping 3s infinite, glow-pulse 2s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute bottom-20 left-20 w-5 h-5 bg-white/50 rounded-full shadow-lg"
-          style={{
-            animationDelay: "2.2s",
-            animation: "ping 2.5s infinite, glow-pulse 3s ease-in-out infinite",
-          }}
-        />
-
-        <div
-          className="absolute top-1/2 left-2 w-3 h-3 bg-cyan-400/70 rounded-full shadow-md"
-          style={{ animation: "bounce 1.5s infinite, float-circular 15s linear infinite" }}
-        />
-        <div
-          className="absolute top-1/3 right-5 w-7 h-7 bg-white/35 rounded-full shadow-lg"
-          style={{ animation: "pulse 3s infinite, float-zigzag 20s ease-in-out infinite" }}
-        />
-
-        <div
-          className="hidden sm:block absolute top-1/4 left-1/3 w-5 h-5 bg-cyan-300/40 rounded-full shadow-lg"
-          style={{ animation: "pulse 2.8s infinite, float-spiral 18s linear infinite" }}
-        />
-        <div
-          className="hidden sm:block absolute bottom-1/3 right-1/3 w-6 h-6 bg-white/45 rounded-full shadow-lg"
-          style={{ animation: "pulse 3.2s infinite, float-wave 14s ease-in-out infinite" }}
-        />
-        <div
-          className="hidden sm:block absolute top-3/4 left-1/5 w-4 h-4 bg-cyan-200/50 rounded-full shadow-md"
-          style={{ animation: "bounce 2.2s infinite, float-orbit 16s linear infinite" }}
-        />
-      </div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center min-h-svh min-h-[100vh] px-4 sm:px-8">
