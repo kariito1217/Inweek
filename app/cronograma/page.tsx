@@ -2,101 +2,30 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import Link from "next/link"
-import { ArrowLeft, Calendar, Clock, MapPin, Sparkles } from "lucide-react"
-import { useState } from "react"
+import { ArrowLeft, Sparkles } from "lucide-react"
+import { useMemo, useState } from "react"
 
+/* ===================== DATOS ORIGINALES (SIN CAMBIOS) ===================== */
 const facultades = [
   {
     id: "FCSH Norte",
     nombre: "Facultad de Ciencias Sociales y Humanas",
     descripcion: "Sede Norte",
     eventos: [
-      { 
-        titulo: "Exposición fotográfica Encuentro Cultura Visual", 
-        descripcion: "",
-        fecha: "Lunes 20 de Octubre", 
-        hora: "Permanente toda la semana", 
-        lugar: "sala de exposiciones biblioteca" 
-      },
-      { 
-        titulo: "Encuentro Cultura Visual: Fotografía Creativa y Experimental",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre", 
-        hora: "10:00 a.m", 
-        lugar: "Estación 1: Salón 301" 
-      },
-      { 
-        titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre", 
-        hora: "2:00 p.m", 
-        lugar: "Salón A108" 
-      },
-      { 
-        titulo: "Entramado Social: Contar la experiencia - Práctica en Trabajo Social",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre", 
-        hora: "8:00 a.m", 
-        lugar: "PARQUE DEL MONJE" 
-      },
-      { 
-        titulo: "Caleidoscopio Social: Historias que sanan: la comunicación social como punete de resiliencia comunitaria",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre", 
-        hora: "10:00 a.m", 
-        lugar: "Auditorio Amarillo" 
-      },
-      { 
-        titulo: "Caleidoscopio Social: De la cámara al aula: miradas en práctica",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre", 
-        hora: "10:00 a.m", 
-        lugar: "Salon C208" 
-      },
-      { 
-        titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre", 
-        hora: "2:00 p.m", 
-        lugar: "Salón A108" 
-      },
-      { 
-        titulo: "Caleidoscopio Social: Narración y Deporte: Voces en Vivo",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre", 
-        hora: "2:00 p.m", 
-        lugar: "Auditorio amarillo" 
-      },
-      { 
-        titulo: "Caleidoscopio Social: Samaritanos de la Calle: Ecos y Relatos de Vida",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre", 
-        hora: "2:00 p.m", 
-        lugar: "Auditorio Rojo" 
-      },
-      { 
-        titulo: "Encuentro Cultura Visual: Convergencias Académicas: ACTITUD & SAPIENTIA Encuentro de saberes, perspectivas y disciplinas que representan la producción intelectual UniCamacho",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre", 
-        hora: "2:00 p.m", 
-        lugar: "Biblioteca" 
-      },
-      { 
-        titulo: "Biodiversidad (miniCOP)",
-        descripcion: "", 
-        fecha: "Jueves 23 de Octubre", 
-        hora: "", 
-        lugar: "Stand (Eco Raíces)" 
-      },
-      { 
-        titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre", 
-        hora: "9:00 a.m. - 2:00 p.m.", 
-        lugar: "Av. Estación 1 - Sala MAC" 
-      },
+      { titulo: "Exposición fotográfica Encuentro Cultura Visual", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "Permanente toda la semana", lugar: "sala de exposiciones biblioteca" },
+      { titulo: "Encuentro Cultura Visual: Fotografía Creativa y Experimental", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Estación 1: Salón 301" },
+      { titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", descripcion: "", fecha: "Martes 21 de Octubre", hora: "2:00 p.m", lugar: "Salón A108" },
+      { titulo: "Entramado Social: Contar la experiencia - Práctica en Trabajo Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "8:00 a.m", lugar: "PARQUE DEL MONJE" },
+      { titulo: "Caleidoscopio Social: Historias que sanan: la comunicación social como punete de resiliencia comunitaria", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Auditorio Amarillo" },
+      { titulo: "Caleidoscopio Social: De la cámara al aula: miradas en práctica", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Salon C208" },
+      { titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Salón A108" },
+      { titulo: "Caleidoscopio Social: Narración y Deporte: Voces en Vivo", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Auditorio amarillo" },
+      { titulo: "Caleidoscopio Social: Samaritanos de la Calle: Ecos y Relatos de Vida", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Auditorio Rojo" },
+      { titulo: "Encuentro Cultura Visual: Convergencias Académicas: ACTITUD & SAPIENTIA Encuentro de saberes, perspectivas y disciplinas que representan la producción intelectual UniCamacho", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Biblioteca" },
+      { titulo: "Biodiversidad (miniCOP)", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "", lugar: "Stand (Eco Raíces)" },
+      { titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "9:00 a.m. - 2:00 p.m.", lugar: "Av. Estación 1 - Sala MAC" },
     ],
   },
   {
@@ -104,695 +33,427 @@ const facultades = [
     nombre: "Facultad de Ciencias Sociales y Humanas",
     descripcion: "Sede Sur",
     eventos: [
-      { 
-        titulo: "Inauguración Coloquio",
-        descripcion: "", 
-        fecha: "Lunes 20 de Octubre",
-         hora: "10:00 a.m. - 1:00 p.m", 
-         lugar: "Aula Máxima" 
-      },
-      { 
-        titulo: "Exposición fotográfica BioDiversidad",
-        descripcion: "", 
-        fecha: "Lunes 20 de Octubre",
-         hora: "Permanente toda la semana", 
-         lugar: "Sala de exposiciones biblioteca" 
-      },      
-      { 
-        titulo: "Inauguración Caleidoscopio Social",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-         hora: "2:00 p.m. - 5:00 p.m", 
-         lugar: "Aula Máxima" 
-      },
-      { 
-        titulo: "Tejiendo voces y vínculos: El impacto de la comunicación en la vida comunitaria",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-        hora: "6:30 p.m", 
-        lugar: "Salón AL 119" 
-      },
-      { 
-        titulo: "Entramado Social",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre",
-        hora: "10:00 a.m. - 1:00 p.m", 
-        lugar: "Aula Máxima" 
-      },
-      { 
-        titulo: "Camping",
-        descripcion: "",
-        fecha: "Miércoles 22 de Octubre",
-        hora: "7:00 p.m", 
-        lugar: "cancha de fútbol" 
-      },
-      { 
-        titulo: "Caleidoscopio Social:  La historia a traves del foco",
-        descripcion: "", 
-        fecha: "Jueves 23 de Octubre",
-        hora: "10:00 a.m", 
-        lugar: "Auditorio 1" 
-      },
-      { 
-        titulo: "Caleidoscopio Social: Tejiendo Historia con Hilos de Creatividad",
-        descripcion: "", 
-        fecha: "Jueves 23 de Octubre",
-        hora: "2:00 p.m", 
-        lugar: "Biblioteca" 
-      },
-      { 
-        titulo: "Caleidoscopio Social: Tejiendo la verdad (podcats)",
-        descripcion: "", 
-        fecha: "Jueves 23 de Octubre",
-        hora: "2:00 p.m", 
-        lugar: "Auditorio 4" 
-      },
-      { 
-        titulo: "Caleidoscopio Social: ¿Y aquí como nos cuidamos?",
-        descripcion: "",
-        fecha: "Jueves 23 de Octubre",
-        hora: "6:30 p.m", 
-        lugar: "Auditorio 5" 
-      },
-      { 
-        titulo: "Caleidoscopio Social: Ecos que Transforman",
-        descripcion: "", 
-        fecha: "Jueves 23 de Octubre",
-        hora: "10:00 a.m", 
-        lugar: "Auditorio 4" 
-      },
-      { 
-        titulo: "Encuentro Cultura Visual: Portafolios vivos, ideas en movimiento",
-        descripcion: "", 
-        fecha: "Jueves 23 de Octubre",
-        hora: "10:00 a.m", 
-        lugar: "Innova Lab" 
-      },
-      { 
-        titulo: "Entramado Social",
-        descripcion: "", 
-        fecha: "Jueves 23 de Octubre",
-        hora: "6:30 p.m", 
-        lugar: "Aula Máxima" 
-      },
-      { 
-        titulo: "Acto de cierre Coloquio",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "10:00 - 1:00 p.m", 
-        lugar: "Aula Máxima" 
-      },
-      { 
-        titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "9:00 a.m", 
-        lugar: "salida externa Comuna 20 y Museo Popular de Siloé" 
-      },
-      ],
-    },
-
-    {
+      { titulo: "Inauguración Coloquio", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "10:00 a.m. - 1:00 p.m", lugar: "Aula Máxima" },
+      { titulo: "Exposición fotográfica BioDiversidad", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "Permanente toda la semana", lugar: "Sala de exposiciones biblioteca" },
+      { titulo: "Inauguración Caleidoscopio Social", descripcion: "", fecha: "Martes 21 de Octubre", hora: "2:00 p.m. - 5:00 p.m", lugar: "Aula Máxima" },
+      { titulo: "Tejiendo voces y vínculos: El impacto de la comunicación en la vida comunitaria", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Salón AL 119" },
+      { titulo: "Entramado Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m. - 1:00 p.m", lugar: "Aula Máxima" },
+      { titulo: "Camping", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "7:00 p.m", lugar: "cancha de fútbol" },
+      { titulo: "Caleidoscopio Social:  La historia a traves del foco", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Auditorio 1" },
+      { titulo: "Caleidoscopio Social: Tejiendo Historia con Hilos de Creatividad", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Biblioteca" },
+      { titulo: "Caleidoscopio Social: Tejiendo la verdad (podcats)", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Auditorio 4" },
+      { titulo: "Caleidoscopio Social: ¿Y aquí como nos cuidamos?", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "6:30 p.m", lugar: "Auditorio 5" },
+      { titulo: "Caleidoscopio Social: Ecos que Transforman", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Auditorio 4" },
+      { titulo: "Encuentro Cultura Visual: Portafolios vivos, ideas en movimiento", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Innova Lab" },
+      { titulo: "Entramado Social", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "6:30 p.m", lugar: "Aula Máxima" },
+      { titulo: "Acto de cierre Coloquio", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "10:00 - 1:00 p.m", lugar: "Aula Máxima" },
+      { titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "9:00 a.m", lugar: "salida externa Comuna 20 y Museo Popular de Siloé" },
+    ],
+  },
+  {
     id: "FCSH Virtual",
     nombre: "Facultad de Ciencias Sociales y Humanas",
     descripcion: "Virtual",
     eventos: [
-      { 
-        titulo: "Trabajo Social y Construcción de Comunidad en los Territorios",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-         hora: "10:00 a.m", 
-         lugar: "Zoom" 
-      },
-      { 
-        titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-         hora: "6:30 p.m", 
-         lugar: "Zoom" 
-      },
-      { 
-        titulo: "4to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre",
-        hora: "10:00 a.m", 
-        lugar: "Zoom" 
-      },
-      { 
-        titulo: "Presentación de trabajos de grado con menciones en Comunicación Social",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre",
-        hora: "6:30 p.m", 
-        lugar: "Zoom" 
-      },
-      { 
-        titulo: "Conectando con comunidades desde la investigación en Trabajo Social",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre",
-        hora: "6:30 p.m", 
-        lugar: "Zoom" 
-      },
-      { 
-        titulo: "5to. Encuentro interinstitucional de trabajos de grado en Diseño Visual",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre",
-        hora: "10:00 a.m", 
-        lugar: "Zoom" 
-      },
-      { 
-        titulo: "Comunicar para Crecer: Estrategias Corporativas en el Campo Profesional",
-        descripcion: "", 
-        fecha: "Miércoles 22 de Octubre",
-        hora: "6:30 p.m", 
-        lugar: "Zoom" 
-      },
-      ],
+      { titulo: "Trabajo Social y Construcción de Comunidad en los Territorios", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Zoom" },
+      { titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Zoom" },
+      { titulo: "4to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom" },
+      { titulo: "Presentación de trabajos de grado con menciones en Comunicación Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom" },
+      { titulo: "Conectando con comunidades desde la investigación en Trabajo Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom" },
+      { titulo: "5to. Encuentro interinstitucional de trabajos de grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom" },
+      { titulo: "Comunicar para Crecer: Estrategias Corporativas en el Campo Profesional", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom" },
+    ],
   },
-   {
+  {
     id: "FI Norte",
     nombre: "Facultad de Ingeniería",
     descripcion: "Sede Norte",
     eventos: [
-      { 
-        titulo: "Carrera de Drones con simulador",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-         hora: "10:00 a.m - 2:00 p.m", 
-         lugar: "Tarima del Agora" 
-      },
-      { 
-        titulo: "Taller de prototipado - ITMedia-Grintic",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-         hora: "6:30 p.m", 
-         lugar: "Sala de sistemas" 
-      },
-      { 
-        titulo: "Muestra Modelos Lean Manufactúring Dispositivos exoesqueleticos Planta de procesamiento de Cacao Biocombustible apartir de la yuca",
-        descripcion: "", 
-        fecha: "Jueves 23 de Octubre",
-         hora: "10:00 a.m. - 7:00p.m", 
-         lugar: "Stand (SEGESTOP)" 
-      },      
-      ],
+      { titulo: "Carrera de Drones con simulador", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m - 2:00 p.m", lugar: "Tarima del Agora" },
+      { titulo: "Taller de prototipado - ITMedia-Grintic", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Sala de sistemas" },
+      { titulo: "Muestra Modelos Lean Manufactúring Dispositivos exoesqueleticos Planta de procesamiento de Cacao Biocombustible apartir de la yuca", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m. - 7:00p.m", lugar: "Stand (SEGESTOP)" },
+    ],
   },
-   {
+  {
     id: "FI Sur",
     nombre: "Facultad de Ingeniería",
     descripcion: "Sede Sur",
     eventos: [
-      { 
-        titulo: "Conversatorio: “La universidad del futuro, la que todos queremos”",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-        hora: "8:00 a.m - 10:00 a.m", 
-        lugar: "Auditorio 4" 
-      },
-      { 
-        titulo: "Taller Manufactura Digital",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-         hora: "10:00 a.m - 11:00 a.m", 
-         lugar: "Auditorio 4" 
-      },
-      { 
-        titulo: "Implementando una Arquitectura Multitenant Escalable y Eficiente con NestJS y Docker",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-        hora: "11:00 a.m - 12:00 p.m", 
-        lugar: "Auditorio 5" 
-      },
-      { 
-        titulo: "Sumobots", 
-        descripcion: "",
-        fecha: "Martes 21 de Octubre",
-        hora: "09:00 a.m - 12:00 p.m", 
-        lugar: "Carpa al lado del Aula Máxima" 
-      },
-      { 
-        titulo: "El viaje de la IA: descubre, inspírate y juega",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-        hora: "10:00 a.m - 11:00 a.m", 
-        lugar: "Sala de Sistemas" 
-      },       
-      ],
+      { titulo: "Conversatorio: La universidad del futuro, la que todos queremos", descripcion: "", fecha: "Martes 21 de Octubre", hora: "8:00 a.m - 10:00 a.m", lugar: "Auditorio 4" },
+      { titulo: "Taller Manufactura Digital", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m - 11:00 a.m", lugar: "Auditorio 4" },
+      { titulo: "Implementando una Arquitectura Multitenant Escalable y Eficiente con NestJS y Docker", descripcion: "", fecha: "Martes 21 de Octubre", hora: "11:00 a.m - 12:00 p.m", lugar: "Auditorio 5" },
+      { titulo: "Sumobots", descripcion: "", fecha: "Martes 21 de Octubre", hora: "09:00 a.m - 12:00 p.m", lugar: "Carpa al lado del Aula Máxima" },
+      { titulo: "El viaje de la IA: descubre, inspírate y juega", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m - 11:00 a.m", lugar: "Sala de Sistemas" },
+    ],
   },
   {
     id: "DAI",
     nombre: "Decanato Asociado de Investigaciones",
     descripcion: "Norte y Sur",
     eventos: [
-       { 
-        titulo: "Conversatorio: “La universidad del futuro, la que todos queremos”",
-        descripcion: "Sede Sur", 
-        fecha: "Martes 21 de Octubre",
-         hora: "8:00 a.m - 10:00 a.m", 
-         lugar: "Auditorio 4" 
-      },
-      { 
-        titulo: "Encuentro Cientifico y Educativo de Experiencias Investigativas - ECE2I",
-        descripcion: "Sede Norte", 
-        fecha: "Jueves 23 de Octubre",
-         hora: "8:00 a.m", 
-         lugar: "Salones" 
-      },    
-      { 
-        titulo: "Stand de grupos y Semilleros",
-        descripcion: "Sede Norte", 
-        fecha: "Jueves 23 de Octubre",
-         hora: "8:00 a.m - 8:00 p.m", 
-         lugar: "Stand (Ágora)" 
-      },  
-      { 
-        titulo: "Reconocimientos del DAI",
-        descripcion: "Sede Sur", 
-        fecha: "Lunes 20 de Octubre",
-         hora: "09:00 a.m", 
-         lugar: "Aula Máxima" 
-      },        
-    ]
+      { titulo: "Conversatorio: La universidad del futuro, la que todos queremos", descripcion: "Sede Sur", fecha: "Martes 21 de Octubre", hora: "8:00 a.m - 10:00 a.m", lugar: "Auditorio 4" },
+      { titulo: "Encuentro Cientifico y Educativo de Experiencias Investigativas - ECE2I", descripcion: "Sede Norte", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m", lugar: "Salones" },
+      { titulo: "Stand de grupos y Semilleros", descripcion: "Sede Norte", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m - 8:00 p.m", lugar: "Stand (Ágora)" },
+      { titulo: "Reconocimientos del DAI", descripcion: "Sede Sur", fecha: "Lunes 20 de Octubre", hora: "09:00 a.m", lugar: "Aula Máxima" },
+    ],
   },
   {
     id: "CEFTEL",
     nombre: " Centro de Formación Técnica Laboral - CEFTEL",
     descripcion: "Sede Norte",
-    eventos: [
-       { 
-        titulo: "Investiga, Conecta e Ilumina: La Magia de la Domótica al Alcance de tu Mano",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-         hora: "6:30 p.m", 
-         lugar: "Salón D202" 
-      },  
-    ]
+    eventos: [{ titulo: "Investiga, Conecta e Ilumina: La Magia de la Domótica al Alcance de tu Mano", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Salón D202" }],
   },
   {
     id: "FCE y PLE",
     nombre: "Facultad de Ciencias Empresariales & Programa de Liderazgo y Emprendimiento",
     descripcion: "Norte y Sur",
     eventos: [
-      { 
-        titulo: "Cátedra Empresarial",
-        descripcion: "FCE \nSede Sur", 
-        fecha: "Martes 21 de Octubre",
-         hora: "6:00 p.m - 8:00 p.m", 
-         lugar: "Aula Máxima" 
-      },  
-      { 
-        titulo: "XVII Muestra Empresarial Inauguración muestra y muestra durante todo el día (participan todas las facultades)",
-        descripcion: "FCE & PLE \nSede Norte", 
-        fecha: "Viernes 24 de Octubre",
-         hora: "10:00 a.m - 8:00 p.m", 
-         lugar: "Stand (Ágora)" 
-      },  
-      { 
-        titulo: "XVII Muestra Empresarial Unicamacho (todas las Facultades)",
-        descripcion: "FCE & PLE \nSede Norte",  
-        fecha: "Sábado 25 de Octubre",
-         hora: "8:00 a.m - 4:00 p.m", 
-         lugar: "Stand (Ágora)" 
-      },       
-    ]
+      { titulo: "Cátedra Empresarial", descripcion: "FCE \nSede Sur", fecha: "Martes 21 de Octubre", hora: "6:00 p.m - 8:00 p.m", lugar: "Aula Máxima" },
+      { titulo: "XVII Muestra Empresarial Inauguración muestra y muestra durante todo el día (participan todas las facultades)", descripcion: "FCE & PLE \nSede Norte", fecha: "Viernes 24 de Octubre", hora: "10:00 a.m - 8:00 p.m", lugar: "Stand (Ágora)" },
+      { titulo: "XVII Muestra Empresarial Unicamacho (todas las Facultades)", descripcion: "FCE & PLE \nSede Norte", fecha: "Sábado 25 de Octubre", hora: "8:00 a.m - 4:00 p.m", lugar: "Stand (Ágora)" },
+    ],
   },
   {
     id: "FEDV",
     nombre: "Facultad de Educación a Distancia y Virtual",
     descripcion: "Sede Sur",
     eventos: [
-      { 
-        titulo: "Taller de sensibilización “Narrar para Sanar”",
-        descripcion: "", 
-        fecha: "Lunes 20 de Octubre",
-         hora: "8:00 a.m - 12:00 p.m", 
-         lugar: "Auditorio 4" 
-      },
-      { 
-        titulo: "Primer Conversatorio sobre los objetos de estudio e investigación en el programa ASST",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-        hora: "10:00 a.m - 12:00 p.m", 
-        lugar: "Auditorio 5" 
-      },
-      { 
-        titulo: "Encuentro de semilleros de investigación vinculados con los programas de Licenciatura en Educación Infantil del Distrito de Santiago de Cali",
-        descripcion: "", 
-        fecha: "Miercoles 22 de Octubre",
-        hora: "9:00 a.m - 12:00 p.m", 
-        lugar: "Auditorio 4" 
-      }, 
-      { 
-        titulo: "Simposio de Biomecánica y Ergonomía: Innovaciones para la Seguridad y Salud en el Trabajo", 
-        descripcion: "",
-        fecha: "Miercoles 22 de Octubre",
-        hora: "8:00 a.m - 12:00 p.m", 
-        lugar: "Auditorio 5" 
-      },
-      { 
-        titulo: "Taller búsqueda en bases de datos y tesauros", 
-        descripcion: "",
-        fecha: "Sábado 25 de Octubre",
-        hora: "08:00 a.m - 12:00 p.m", 
-        lugar: "Auditorio 4" 
-      },              
-
-    ]
+      { titulo: "Taller de sensibilización Narrar para Sanar", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "8:00 a.m - 12:00 p.m", lugar: "Auditorio 4" },
+      { titulo: "Primer Conversatorio sobre los objetos de estudio e investigación en el programa ASST", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m - 12:00 p.m", lugar: "Auditorio 5" },
+      { titulo: "Encuentro de semilleros de investigación vinculados con los programas de Licenciatura en Educación Infantil del Distrito de Santiago de Cali", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "9:00 a.m - 12:00 p.m", lugar: "Auditorio 4" },
+      { titulo: "Simposio de Biomecánica y Ergonomía: Innovaciones para la Seguridad y Salud en el Trabajo", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "8:00 a.m - 12:00 p.m", lugar: "Auditorio 5" },
+      { titulo: "Taller búsqueda en bases de datos y tesauros", descripcion: "", fecha: "Sábado 25 de Octubre", hora: "08:00 a.m - 12:00 p.m", lugar: "Auditorio 4" },
+    ],
   },
-   {
+  {
     id: "DCB Sur",
     nombre: "Departamento de Ciencias Básicas",
     descripcion: "Sede Sur",
     eventos: [
-      { 
-        titulo: "IV Certamen de Física - Poster",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-         hora: "8:00 a.m - 8:00 p.m", 
-         lugar: "Biblioteca" 
-      },
-      { 
-        titulo: "Día de la estadistica",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "10:00 a.m - 5:00 p.m", 
-        lugar: "Auditorio y Antigua biblioteca" 
-      },
-      { 
-        titulo: "IV Certamen de Física Conferencia",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "2:00 p.m - 4:00 p.m", 
-        lugar: "Aula máxima " 
-      },
-      { 
-        titulo: "IV Certamen de Física Conferencia",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "6:30 p.m - 9:30 p.m", 
-        lugar: "Aula máxima " 
-      }, 
-      { 
-        titulo: "IV Certamen de Física Ponencias",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "11:00 a.m - 1:00 p.m", 
-        lugar: "Auditorio 4 " 
-      },
-      { 
-        titulo: "IV Certamen de Física Presentación",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "9:00 a.m - 10:00 a.m", 
-        lugar: "Auditorio 4 " 
-      },
-      { 
-        titulo: "Conferencia conmemorativa al día mundial de la estadística",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "10:00 a.m - 12:00 p.m", 
-        lugar: "Auditorio 5" 
-      }, 
-      { 
-        titulo: "Simulación bolsa de valores",
-        descripcion: "", 
-        fecha: "Viernes 24 de Octubre",
-        hora: "2:00 p.m - 5:00 p.m", 
-        lugar: "Espacio Antigua biblioteca " 
-      },
-      { 
-        titulo: "Concurso de coheteria 3ra edicion",
-        descripcion: "", 
-        fecha: "Sábado 25 de Octubre",
-        hora: "08:00 a.m - 12:00 p.m", 
-        lugar: "Cancha 2" 
-      },                                                  
-    ]
+      { titulo: "IV Certamen de Física - Poster", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "8:00 a.m - 8:00 p.m", lugar: "Biblioteca" },
+      { titulo: "Día de la estadistica", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "10:00 a.m - 5:00 p.m", lugar: "Auditorio y Antigua biblioteca" },
+      { titulo: "IV Certamen de Física Conferencia", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "2:00 p.m - 4:00 p.m", lugar: "Aula máxima " },
+      { titulo: "IV Certamen de Física Conferencia", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "6:30 p.m - 9:30 p.m", lugar: "Aula máxima " },
+      { titulo: "IV Certamen de Física Ponencias", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "11:00 a.m - 1:00 p.m", lugar: "Auditorio 4 " },
+      { titulo: "IV Certamen de Física Presentación", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "9:00 a.m - 10:00 a.m", lugar: "Auditorio 4 " },
+      { titulo: "Conferencia conmemorativa al día mundial de la estadística", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "10:00 a.m - 12:00 p.m", lugar: "Auditorio 5" },
+      { titulo: "Simulación bolsa de valores", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "2:00 p.m - 5:00 p.m", lugar: "Espacio Antigua biblioteca " },
+      { titulo: "Concurso de coheteria 3ra edicion", descripcion: "", fecha: "Sábado 25 de Octubre", hora: "08:00 a.m - 12:00 p.m", lugar: "Cancha 2" },
+    ],
   },
 ]
 
+/* ===================== HELPERS (agrupación + limpieza) ===================== */
+type Evento = { titulo: string; descripcion: string; fecha: string; hora: string; lugar: string }
+type SedeKey = "Sede Norte" | "Sede Sur" | "Virtual"
+const SEDES: SedeKey[] = ["Sede Norte", "Sede Sur", "Virtual"]
+
+const MONTHS: Record<string, string> = {
+  enero: "ENE", febrero: "FEB", marzo: "MAR", abril: "ABR", mayo: "MAY", junio: "JUN",
+  julio: "JUL", agosto: "AGO", septiembre: "SEP", setiembre: "SEP", octubre: "OCT", noviembre: "NOV", diciembre: "DIC",
+}
+
+function inferSede(facDesc?: string, evDesc?: string): SedeKey | null {
+  const src = `${facDesc ?? ""} ${evDesc ?? ""}`.toLowerCase()
+  if (src.includes("virtual")) return "Virtual"
+  if (src.includes("sede norte") || src.includes(" norte")) return "Sede Norte"
+  if (src.includes("sede sur") || src.includes(" sur")) return "Sede Sur"
+  return null
+}
+
+function cleanDescripcion(desc: string | undefined): string {
+  if (!desc) return ""
+  return desc
+    .replace(/sede\s*norte/gi, "")
+    .replace(/sede\s*sur/gi, "")
+    .replace(/\bvirtual\b/gi, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/^[\s,\-–:]+|[\s,\-–:]+$/g, "")
+    .trim()
+}
+
+function parseFechaHora(fecha: string, hora: string) {
+  const day = (fecha.match(/(\d{1,2})/)?.[1] ?? "").padStart(2, "0")
+  let month = ""
+  for (const key of Object.keys(MONTHS)) {
+    if (fecha.toLowerCase().includes(key)) { month = MONTHS[key]; break }
+  }
+  const timeMatch = hora.match(/(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m?/i)
+  let timeCompact = ""
+  if (timeMatch) {
+    const hh = Number.parseInt(timeMatch[1], 10)
+    const ampm = (timeMatch[3] ?? "").toUpperCase() === "A" ? "AM" : "PM"
+    timeCompact = `${hh}${ampm}`
+  }
+  return { day, month, timeCompact }
+}
+
+function useFacultadesAgrupadas() {
+  return useMemo(() => {
+    const byNombre: Record<string, { nombre: string; colecciones: typeof facultades }> = {}
+    for (const f of facultades) {
+      if (!byNombre[f.nombre]) byNombre[f.nombre] = { nombre: f.nombre, colecciones: [] as any }
+      byNombre[f.nombre].colecciones.push(f)
+    }
+
+    return Object.values(byNombre).map((grupo) => {
+      const buckets: Record<SedeKey, Evento[]> = { "Sede Norte": [], "Sede Sur": [], Virtual: [] }
+
+      for (const fac of grupo.colecciones) {
+        for (const ev of fac.eventos) {
+          const sede = inferSede(fac.descripcion, ev.descripcion)
+          const limpio = { ...ev, descripcion: cleanDescripcion(ev.descripcion) }
+          if (sede) buckets[sede].push(limpio)
+          else {
+            if (fac.descripcion?.toLowerCase().includes("norte")) buckets["Sede Norte"].push(limpio)
+            else if (fac.descripcion?.toLowerCase().includes("sur")) buckets["Sede Sur"].push(limpio)
+            else buckets["Sede Sur"].push(limpio)
+          }
+        }
+      }
+
+      const tabs = SEDES.filter((s) => buckets[s].length > 0)
+      return { nombre: grupo.nombre, buckets, tabs }
+    })
+  }, [])
+}
+
+/* ===================== UI ===================== */
 export default function CronogramaPage() {
+  const grupos = useFacultadesAgrupadas()
+
   const [openId, setOpenId] = useState<string | undefined>(undefined)
+  const [tabByFaculty, setTabByFaculty] = useState<Record<string, SedeKey | null>>({})
+
+  const PINK = "#ff0074"
+  const PINK_700 = "#e00068"
+  const LIME = "#b5ff00"
 
   const scrollToId = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    const header = document.querySelector("header") as HTMLElement | null;
-    const OFFSET = (header?.offsetHeight ?? 80) + 8;
-
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    const delay = isDesktop ? 180 : 60;
-    const fixDelay = isDesktop ? 220 : 120;
-
+    const el = document.getElementById(id)
+    if (!el) return
+    const header = document.querySelector("header") as HTMLElement | null
+    const OFFSET = (header?.offsetHeight ?? 80) + 8
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches
+    const delay = isDesktop ? 180 : 60
+    const fixDelay = isDesktop ? 220 : 120
     const align = () => {
-      const trigger = el.querySelector("[data-radix-accordion-trigger]") as HTMLElement | null;
-      const target = trigger ?? el;
+      const trigger = el.querySelector("[data-radix-accordion-trigger]") as HTMLElement | null
+      const target = trigger ?? el
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          const top = target.getBoundingClientRect().top + window.scrollY - OFFSET;
-          window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
-        });
-      });
-    };
-
-    window.setTimeout(align, delay);
-    window.setTimeout(align, delay + fixDelay);
-  };
+          const top = target.getBoundingClientRect().top + window.scrollY - OFFSET
+          window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" })
+        })
+      })
+    }
+    window.setTimeout(align, delay)
+    window.setTimeout(align, delay + fixDelay)
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-[#b5ff00]/20 to-[#00c8dc]/20 rounded-full blur-2xl animate-pulse"
-          style={{ animationDelay: "0s", animationDuration: "4s", animation: "pulse 4s infinite, float-slow 12s ease-in-out infinite" }}
-        />
-        <div
-          className="absolute top-40 right-20 w-60 h-60 bg-gradient-to-r from-[#ff0074]/20 to-[#b5ff00]/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "2s", animationDuration: "6s", animation: "pulse 6s infinite, float-diagonal-large 15s ease-in-out infinite" }}
-        />
-        <div
-          className="absolute bottom-40 left-1/4 w-50 h-50 bg-gradient-to-r from-[#00c8dc]/20 to-[#ff0074]/20 rounded-full blur-2xl animate-pulse"
-          style={{ animationDelay: "1s", animationDuration: "5s", animation: "pulse 5s infinite, float-circular-large 18s linear infinite" }}
-        />
-        <div
-          className="absolute bottom-20 right-1/3 w-44 h-44 bg-gradient-to-r from-[#b5ff00]/20 to-[#00c8dc]/20 rounded-full blur-2xl animate-pulse"
-          style={{ animationDelay: "3s", animationDuration: "4.5s", animation: "pulse 4.5s infinite, float-wave 20s ease-in-out infinite" }}
-        />
-      </div>
-
+    <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: PINK }}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-white/90 via-[#00c8dc]/10 to-[#b5ff00]/10 md:backdrop-blur-md md:shadow-2xl border-b-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              <Link href="/">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-gray-600 hover:text-white hover:bg-gradient-to-r hover:from-[#00c8dc] hover:to-[#b5ff00] transition-all duration-300 md:duration-500 md:hover:scale-110 hover:shadow-lg border-2 border-transparent hover:border-[#00c8dc]/50"
-                >
-                  <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
-                  <span className="hidden sm:inline font-bold">Volver</span>
-                </Button>
-              </Link>
-              <div>
-                <div className="flex items-center space-x-3">
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black bg-gradient-to-r from-[#00c8dc] via-[#ff0074] to-[#b5ff00] bg-clip-text text-transparent leading-[1.15] overflow-visible pb-0.5">
-                    Cronograma INWEEK
-                  </h1>
-                  <Sparkles className="w-8 h-8 text-[#00c8dc] animate-spin drop-shadow-lg" style={{ animationDuration: "3s" }} />
-                </div>
-                <p className="text-sm sm:text-base text-gray-700 mt-2 font-semibold">🎯 Eventos por Facultad y Departamento</p>
-              </div>
-            </div>
-          </div>
+      <div className="max-w-6xl mx-auto px-4 pt-10 pb-6 text-center">
+      <div className="flex items-center justify-between mb-6">
+          <Link href="/">
+            <Button
+              variant="ghost"
+              size="lg"
+              className="
+                text-white/90 hover:text-white hover:bg-white/10
+                border border-white/40 rounded-full
+                px-5 md:px-6 py-3 md:py-3.5
+                text-base md:text-lg
+              "
+            >
+              <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 mr-2" />
+              Volver
+            </Button>
+          </Link>
+          <Sparkles className="w-6 h-6 text-white/90" />
         </div>
+
+
+        <h1 className="text-white font-black text-4xl sm:text-5xl">CRONOGRAMA</h1>
+        <p className="mt-4 text-white/95 font-semibold text-xl md:text-2xl leading-snug">
+          Explora todos los eventos organizados durante la Semana de Innovación del <b>20 al 25 de octubre</b>.
+        </p>
       </div>
 
-      {/* Content */}
-      <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 relative z-10">
-        <div className="mb-10 sm:mb-12 text-center">
-          <div className="bg-gradient-to-r from-white/80 via-[#00c8dc]/10 to-[#b5ff00]/10 md:backdrop-blur-md rounded-3xl p-8 md:shadow-2xl border-2 border-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 hover:shadow-[#00c8dc]/20 transition-all duration-300 md:duration-500 md:hover:scale-[1.02]">
-            <p className="text-base sm:text-lg lg:text-xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-bold">
-              ✨ Explora todos los eventos organizados durante la Semana de Innovación del 20 al 25 de octubre. Cada facultad ha preparado actividades únicas para enriquecer tu experiencia universitaria Unicamacho. ✨
-            </p>
-          </div>
-        </div>
+      {/* Acordeones */}
+      <div className="max-w-6xl mx-auto px-4 pb-6">
+        <Accordion
+          type="single"
+          collapsible
+          className="space-y-1"
+          value={openId}
+          onValueChange={(v) => {
+            setOpenId((prev) => {
+              const next = v ?? undefined
+              if (next && next !== prev) requestAnimationFrame(() => scrollToId(`acc-${next}`))
+              return next
+            })
+          }}
+        >
+          {grupos.map((grupo) => {
+            const accId = grupo.nombre
+            const selectedTab = tabByFaculty[accId] ?? grupo.tabs[0] ?? null
 
-        <div className="mt-12 pt-8">
-          <Accordion
-            type="single"
-            collapsible
-            className="space-y-8"
-            value={openId}
-            onValueChange={(v) => {
-              setOpenId((prev) => {
-                const next = v ?? undefined
-                if (next && next !== prev) requestAnimationFrame(() => scrollToId(`acc-${next}`))
-                return next
-              })
-            }}
-          >
-            {facultades.map((facultad, facultadIndex) => (
-              <AccordionItem
-                key={facultad.id}
-                value={facultad.id}
-                id={`acc-${facultad.id}`}
-                className="bg-gradient-to-r from-white/80 to-white/60 md:backdrop-blur-md rounded-3xl md:shadow-2xl border-2 border-white/40 overflow-hidden hover:shadow-3xl transition-all duration-200 md:duration-700 md:hover:scale-[1.01] group"
-              >
+            return (
+              <AccordionItem key={accId} value={accId} id={`acc-${accId}`} className="border-0">
                 <AccordionTrigger
-                  className={`px-6 sm:px-8 py-8 text-left md:transition-all md:duration-500 hover:bg-gradient-to-r rounded-t-3xl ${
-                    facultadIndex % 3 === 0
-                      ? "hover:from-[#b5ff00]/40 hover:to-[#b5ff00]/20 hover:shadow-[#b5ff00]/60 border-l-8 border-[#b5ff00]"
-                      : facultadIndex % 3 === 1
-                        ? "hover:from-[#00c8dc]/40 hover:to-[#00c8dc]/20 hover:shadow-[#00c8dc]/60 border-l-8 border-[#00c8dc]"
-                        : "hover:from-[#ff0074]/40 hover:to-[#ff0074]/20 hover:shadow-[#ff0074]/60 border-l-8 border-[#ff0074]"
-                  } hover:shadow-2xl`}
+                  className="px-0 text-left rounded-[28px] focus:outline-none hover:no-underline transition-all duration-200 [&>svg]:hidden"
+                  style={{ textDecoration: "none" }}
                 >
-                  <div className="flex flex-col items-start space-y-3">
-                    <h3 className="text-xl sm:text-2xl font-black text-gray-900 group-hover:text-gray-800 transition-colors duration-200 md:duration-300">
-                      {facultad.nombre}
-                    </h3>
-                   {facultad.descripcion && (
-                    <span
-                      className="inline-block px-3 py-1 text-xs sm:text-sm font-bold 
-                                text-white bg-[#050505] 
-                                rounded-full shadow-md"
-                    >
-                      {facultad.descripcion}
+                  <div
+                    className="w-full border border-white rounded-[28px] px-7 lg:px-9 min-h-[96px] sm:min-h-[104px] lg:min-h-[112px]
+                               flex items-center justify-between bg-[rgba(255,255,255,0.04)]
+                               hover:-translate-y-[4px] hover:shadow-[0_14px_28px_rgba(0,0,0,0.28)] transition-all duration-200"
+                  >
+                    <span className="text-white font-extrabold text-2xl md:text-3xl leading-none select-none">
+                      {grupo.nombre}
                     </span>
-                  )}
-                </div>
+                  </div>
                 </AccordionTrigger>
 
-                {/* Sin animación de altura en móvil; en desktop sí (suave). */}
-                <AccordionContent className="
-                  px-6 sm:px-8 pb-10
-                  data-[state=open]:animate-none data-[state=closed]:animate-none
-                  md:data-[state=open]:animate-accordion-down md:data-[state=closed]:animate-accordion-up
-                  md:transition-[height] md:duration-300 md:will-change-[height]
-                ">
-                  <div className="mt-8">
-                    <div
-                      className="flex flex-wrap justify-center items-stretch gap-6 lg:gap-8 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]"
-                      style={{ contentVisibility: "auto", containIntrinsicSize: "1px 900px" }}
-                    >
-                      {facultad.eventos.map((evento, index) => (
-                        <Card
-                          key={index}
-                          className={`border-3 md:hover:shadow-3xl transition-all duration-300 md:duration-700
-                                      w-full sm:w-[300px] lg:w-[320px]
-                                      rounded-2xl overflow-hidden
-                                      flex flex-col md:backdrop-blur-md
-                                      ${
-                                        facultadIndex % 3 === 0
-                                          ? "border-[#b5ff00]/60 md:hover:border-[#b5ff00] md:hover:shadow-[#b5ff00]/50 bg-gradient-to-br from-[#b5ff00]/20 to-[#b5ff00]/10"
-                                          : facultadIndex % 3 === 1
-                                            ? "border-[#00c8dc]/60 md:hover:border-[#00c8dc] md:hover:shadow-[#00c8dc]/50 bg-gradient-to-br from-[#00c8dc]/20 to-[#00c8dc]/10"
-                                            : "border-[#ff0074]/60 md:hover:border-[#ff0074] md:hover:shadow-[#ff0074]/50 bg-gradient-to-br from-[#ff0074]/20 to-[#ff0074]/10"
-                                      }`}
-                        >
-                          <CardHeader className="pb-2">
-                            {/* Título con altura fija para alinear el bloque de atributos */}
-                            <CardTitle
-                              className="text-lg sm:text-xl whitespace-pre-line text-gray-900 font-black leading-tight break-normal [text-wrap:balance] "
-                              title={evento.titulo}
-                            >
-                              {evento.titulo}
-                            </CardTitle>
-                             {evento.descripcion && (
-                            <p className="text-gray-700 text-sm sm:text-base mt-2 font-medium leading-snug tracking-tight italic whitespace-pre-line border-l-4 border-[#9b9b9b] pl-3 
-                              [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical] overflow-hidden 
-                              min-h-[2.8rem]">{evento.descripcion}</p>)}
-                          </CardHeader>
-                          <CardContent className="mt-auto space-y-2 pt-2">
-                            <div className="flex items-start text-sm sm:text-base text-gray-800 font-bold min-h-[1.6rem]">
-                              <Calendar className={`w-5 h-5 mr-3 flex-shrink-0 mt-0.5 ${facultadIndex % 3 === 0 ? "text-[#b5ff00]" : facultadIndex % 3 === 1 ? "text-[#00c8dc]" : "text-[#ff0074]"}`} />
-                              <span className="leading-tight break-words">{evento.fecha}</span>
-                            </div>
-                            <div className="flex items-start text-sm sm:text-base text-gray-800 font-bold min-h-[1.6rem]">
-                              <Clock className={`w-5 h-5 mr-3 flex-shrink-0 mt-0.5 ${facultadIndex % 3 === 0 ? "text-[#b5ff00]" : facultadIndex % 3 === 1 ? "text-[#00c8dc]" : "text-[#ff0074]"}`} />
-                              <span className="leading-tight break-words">{evento.hora}</span>
-                            </div>
-                            <div className="flex items-start text-sm sm:text-base text-gray-800 font-bold min-h-[1.6rem]">
-                              <MapPin className={`w-5 h-5 mr-3 flex-shrink-0 mt-0.5 ${facultadIndex % 3 === 0 ? "text-[#b5ff00]" : facultadIndex % 3 === 1 ? "text-[#00c8dc]" : "text-[#ff0074]"}`} />
-                              <span className="leading-tight break-words">{evento.lugar}</span>
-                            </div>
-                          </CardContent>
+                <AccordionContent className="mt-0 pt-0">
+                  <div className="rounded-[28px] bg-white p-0 overflow-hidden border border-white shadow-[0_10px_28px_rgba(255,0,116,0.18)]">
+                    {/* Tabs */}
+                    {grupo.tabs.length > 0 && (
+                      <div className="px-6 pt-5 pb-3">
+                        <div className="flex flex-wrap gap-3 sm:gap-4">
+                          {grupo.tabs.map((tab) => {
+                            const active = selectedTab === tab
+                            return (
+                              <button
+                                key={tab}
+                                onClick={() => setTabByFaculty((s) => ({ ...s, [accId]: tab }))}
+                                className="rounded-full text-sm md:text-base font-extrabold px-5 py-2 border transition-all duration-150 cursor-pointer hover:-translate-y-[1px]"
+                                style={{
+                                  borderColor: active ? LIME : PINK_700,
+                                  backgroundColor: active ? "rgba(181,255,0,0.9)" : PINK,
+                                  color: active ? "#102400" : "#fff",
+                                  boxShadow: active ? "0 10px 20px rgba(181,255,0,0.35)" : "0 8px 18px rgba(255,0,116,0.35)",
+                                }}
+                                aria-pressed={active}
+                              >
+                                {tab}
+                              </button>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    )}
 
-                        </Card>
-                      ))}
+                    {/* Grid tarjetas -> 3 por fila (lg) y centrado si hay 1 o 2 */}
+                    <div className="px-5 pb-5">
+                      <div className="flex flex-wrap justify-center items-stretch gap-5 lg:gap-6 pb-2 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]">
+
+                        {(selectedTab ? grupo.buckets[selectedTab] : []).map((evento, i) => {
+                          const { day, month, timeCompact } = parseFechaHora(evento.fecha ?? "", evento.hora ?? "")
+                          const showFullHora = !timeCompact && evento.hora && evento.hora.toLowerCase().includes("semana")
+
+                          return (
+                         <Card
+                            key={`${accId}-${selectedTab}-${i}`}
+                            className="rounded-[32px] border-2 overflow-hidden w-full sm:w-[300px] lg:w-[320px]"
+                            style={{
+                              background: "linear-gradient(135deg, #FFC0E3 0%, #FFB3D9 100%)",
+                              boxShadow: "0 8px 24px rgba(255,0,116,0.25)",
+                              borderColor: "#ff0074",
+                            }}
+                          >
+                              <div className="p-6 md:p-7 h-full flex flex-col justify-between">
+                                {/* Title */}
+                                <div className="flex-1 flex items-center">
+                                  <h3
+                                    className="text-black font-black text-xl leading-tight w-full"
+                                    style={{ textAlign: evento.titulo.length < 40 ? "center" : "left" }}
+                                  >
+                                    {evento.titulo}
+                                  </h3>
+                                </div>
+
+                                {/* Date/time/location */}
+                                <div>
+                                  <div className="mb-5 flex items-center gap-2 sm:gap-3">
+                                    <div
+                                      className="text-[88px] md:text-[100px] font-black leading-none flex-shrink-0"
+                                      style={{ color: "#ff0074", WebkitTextStroke: "0px", textShadow: "0 4px 12px rgba(0,0,0,0.12)" }}
+                                    >
+                                      {day || "—"}
+                                    </div>
+
+                                    <div className="flex flex-col gap-0 flex-1 min-w-0">
+                                      {month && (
+                                        <span
+                                          className="text-[36px] md:text-[40px] font-black leading-none uppercase"
+                                          style={{ color: "transparent", WebkitTextStroke: "2.5px #ff0074" }}
+                                        >
+                                          {month}
+                                        </span>
+                                      )}
+                                      {timeCompact ? (
+                                        <span
+                                          className="text-[36px] md:text-[40px] font-black leading-none uppercase"
+                                          style={{ color: "transparent", WebkitTextStroke: "2.5px #ff0074" }}
+                                        >
+                                          {timeCompact}
+                                        </span>
+                                      ) : showFullHora ? (
+                                       <span
+                                    className="text-[14px] md:text-[15px] font-black leading-tight uppercase break-normal whitespace-normal"
+                                    style={{ color: "#ff0074" }}
+                                  >
+                                    {evento.hora}
+                                  </span>
+                                      ) : null}
+                                    </div>
+                                  </div>
+
+                                  {/* Lugar 18px */}
+                                  <div className="text-[18px]">
+                                    <p className="font-black uppercase mb-1" style={{ color: "#ff0074" }}>
+                                      Lugar
+                                    </p>
+                                    <p className="text-black font-semibold leading-snug whitespace-pre-line">
+                                      {evento.lugar}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </Card>
+                          )
+                        })}
+                      </div>
                     </div>
                   </div>
                 </AccordionContent>
               </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+            )
+          })}
+        </Accordion>
 
-        {/* Footer Info */}
-        <div className="mt-12 sm:mt-16 text-center">
-          <Card className="bg-gradient-to-r from-[#00c8dc]/30 to-[#b5ff00]/30 border-[#00c8dc]/60 backdrop-blur-md shadow-3xl hover:shadow-[#00c8dc]/60 transition-all duration-500 border-2 rounded-3xl overflow-hidden">
-            <CardContent className="py-8 sm:py-12">
-              <div className="flex flex-col items-center space-y-6">
-                <div className="flex items-center justify-center">
-                  <img
-                    src="/images/antonioJoseCamacho.png"
-                    alt="Universidad Antonio José Camacho"
-                    className="h-20 sm:h-24 lg:h-32 w-auto object-contain drop-shadow-lg"
-                  />
-                </div>
+      
+     {/* Footer (solo imagen) */}
+<div className="mt-6 mb-4 flex justify-center leading-none">
+  <img
+    src="/images/logoDefinitivo.png"
+    alt="INWEEK 2025"
+    className="block h-32 md:h-36 lg:h-44 w-auto select-none pointer-events-none m-0"
+    draggable={false}
+  />
+</div>
 
-                <div className="text-center space-y-3">
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black bg-gradient-to-r from-[#00c8dc] via-[#0066cc] to-[#004499] bg-clip-text text-transparent">
-                    Institución Universitaria Antonio José Camacho
-                  </h3>
-                  <p className="text-base sm:text-lg text-gray-700 font-semibold max-w-2xl mx-auto leading-relaxed">
-                    Formando profesionales íntegros con excelencia académica y compromiso social
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-center space-x-4 pt-4">
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#00c8dc] to-transparent"></div>
-                  <Sparkles className="w-6 h-6 text-[#00c8dc] animate-pulse" />
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#00c8dc] to-transparent"></div>
-                </div>
-
-                <div className="text-sm sm:text-base text-gray-600 font-medium">
-                  <p>INWEEK 2025</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
 
-      <style jsx>{`
-        @keyframes float-slow {
-          0%, 100% { transform: translateX(0px) translateY(0px); }
-          50% { transform: translateX(20px) translateY(-30px); }
-        }
-        @keyframes float-diagonal-large {
-          0%, 100% { transform: translateX(0px) translateY(0px) scale(1); }
-          25% { transform: translateX(-60px) translateY(-40px) scale(1.1); }
-          50% { transform: translateX(-120px) translateY(-80px) scale(1); }
-          75% { transform: translateX(-60px) translateY(-40px) scale(0.9); }
-        }
-        @keyframes float-circular-large {
-          0% { transform: translateX(0px) translateY(0px); }
-          25% { transform: translateX(40px) translateY(-40px); }
-          50% { transform: translateX(0px) translateY(-80px); }
-          75% { transform: translateX(-40px) translateY(-40px); }
-          100% { transform: translateX(0px) translateY(0px); }
-        }
-        @keyframes float-wave {
-          0%, 100% { transform: translateX(0px) translateY(0px); }
-          16% { transform: translateX(-30px) translateY(-20px); }
-          33% { transform: translateX(30px) translateY(-40px); }
-          50% { transform: translateX(-30px) translateY(-60px); }
-          66% { transform: translateX(30px) translateY(-40px); }
-          83% { transform: translateX(-30px) translateY(-20px); }
-        }
+    
+      {/* Overrides */}
+      <style jsx global>{`
+        [data-radix-accordion-trigger] { text-decoration: none !important; }
+        [data-radix-accordion-trigger]:hover { text-decoration: none !important; }
+        [data-radix-accordion-trigger] svg { display: none !important; }
       `}</style>
     </div>
   )
