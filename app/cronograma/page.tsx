@@ -347,7 +347,7 @@ export default function CronogramaPage() {
                     )}
 
                     {/* Grid tarjetas -> 3 por fila (lg) y centrado si hay 1 o 2 */}
-                    <div className="px-5 pb-5">
+                    <div className="px-6 pb-7">
                       <div className="flex flex-wrap justify-center items-stretch gap-5 lg:gap-6 pb-2 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]">
 
                         {(selectedTab ? grupo.buckets[selectedTab] : []).map((evento, i) => {
