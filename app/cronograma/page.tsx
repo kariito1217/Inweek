@@ -288,13 +288,6 @@ const facultades = [
          lugar: "Sala de sistemas" 
       },
       { 
-        titulo: "Conversatorio: “La universidad del futuro, la que todos queremos”",
-        descripcion: "", 
-        fecha: "Martes 21 de Octubre",
-         hora: "8:00 a.m - 10:00 a.m", 
-         lugar: "Auditorio 4" 
-      },
-      { 
         titulo: "Muestra Modelos Lean Manufactúring Dispositivos exoesqueleticos Planta de procesamiento de Cacao Biocombustible apartir de la yuca",
         descripcion: "", 
         fecha: "Jueves 23 de Octubre",
@@ -308,6 +301,13 @@ const facultades = [
     nombre: "Facultad de Ingeniería",
     descripcion: "Sede Sur",
     eventos: [
+      { 
+        titulo: "Conversatorio: “La universidad del futuro, la que todos queremos”",
+        descripcion: "", 
+        fecha: "Martes 21 de Octubre",
+         hora: "8:00 a.m - 10:00 a.m", 
+         lugar: "Auditorio 4" 
+      },
       { 
         titulo: "Taller Manufactura Digital",
         descripcion: "", 
@@ -345,7 +345,7 @@ const facultades = [
     eventos: [
        { 
         titulo: "Conversatorio: “La universidad del futuro, la que todos queremos”",
-        descripcion: "Sede Norte", 
+        descripcion: "Sede Sur", 
         fecha: "Martes 21 de Octubre",
          hora: "8:00 a.m - 10:00 a.m", 
          lugar: "Auditorio 4" 
