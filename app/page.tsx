@@ -20,7 +20,7 @@ export default function HomePage() {
           xl:bg-cover xl:bg-center
         "
         style={{
-          backgroundImage: "url('/images/bannerFucsia.jpg')",
+          backgroundImage: "url('/images/inicioInweek.png')",
           backgroundColor: "#ff0074",
         }}
       />
@@ -189,7 +189,7 @@ export default function HomePage() {
                 }}
               >
                {/* <MousePointer2 className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 animate-bounce group-hover:animate-spin" />*/} 
-                <span className="relative z-10 group-hover:animate-pulse text-white">Agéndate aquí</span>
+                <span className=" text-xl relative z-10 group-hover:animate-pulse text-white">Agéndate aquí</span>
               </button>
             </Link>
           </div>
