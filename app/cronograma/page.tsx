@@ -61,7 +61,7 @@ const facultades: Facultad[] = [
     nombre: "Facultad de Ciencias Sociales y Humanas",
     descripcion: "Virtual",
     eventos: [
-      { titulo: "Trabajo Social y Construcción de Comunidad en los Territorios", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "" },
+      { titulo: "Trabajo Social y Construcción de Comunidad en los Territorios", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "https://ruavedu.zoom.us/j/81166736322?pwd=YDYtGHTkZjTVzFvDkkRPwBhWyb7Dhc.1" },
       { titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
       { titulo: "4to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "" },
       { titulo: "Presentación de trabajos de grado con menciones en Comunicación Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
@@ -251,7 +251,6 @@ export default function CronogramaPage() {
   const [tabByFaculty, setTabByFaculty] = useState<Record<string, SedeKey | null>>({})
 
   const PINK = "#ff0074"
-  const PINK_700 = "#e00068"
   const LIME = "#b5ff00"
 
   const scrollToId = (id: string) => {
@@ -404,7 +403,7 @@ export default function CronogramaPage() {
                                 onClick={() => setTabByFaculty((s) => ({ ...s, [accId]: tab }))}
                                 className="rounded-full text-sm md:text-base font-extrabold px-5 py-2 border transition-all duration-150 cursor-pointer hover:-translate-y-[1px]"
                                 style={{
-                                  borderColor: selectedTab === tab ? "#b5ff00" : "#e00068",
+                                  borderColor: selectedTab === tab ? "#b5ff00" : "#ff0074",
                                   backgroundColor: selectedTab === tab ? "rgba(181,255,0,0.9)" : "#ff0074",
                                   color: selectedTab === tab ? "#102400" : "#fff",
                                   boxShadow: selectedTab === tab ? "0 10px 20px rgba(181,255,0,0.35)" : "0 8px 18px rgba(255,0,116,0.35)",
@@ -421,7 +420,13 @@ export default function CronogramaPage() {
 
                     {/* Grid tarjetas */}
                     <div className="px-6 pb-7">
-                      <div className="flex flex-wrap justify-center items-stretch gap-5 lg:gap-6 pb-2 mx-auto sm:max-w-[1008px] lg:max-w-[1100px]">
+                      <div
+                        className="
+                          flex flex-wrap justify-center items-stretch gap-5 lg:gap-6 pb-2 mx-auto
+                          sm:max-w-[1008px] lg:max-w-[1100px]
+                          xl:max-w-none xl:w-full xl:grid xl:grid-cols-3 xl:gap-6 xl:justify-between
+                        "
+                      >
                         {(selectedTab ? grupo.buckets[selectedTab] : []).map((evento, i) => {
                           const { day, month, timeLabel, timeMain, meridiem, hasMinutes, rawHora } =
                             parseFechaHora(evento.fecha ?? "", evento.hora ?? "")
@@ -473,9 +478,9 @@ export default function CronogramaPage() {
 
                                       {/* Hora */}
                                       {hasMinutes ? (
-                                        /* Con minutos: HH:MM relleno + AM/PM pequeño (¡sin cambios!) */
+                                        /* Con minutos: HH:MM + AM/PM pequeño */
                                         <div
-                                          className="mt-1 select-none inline-flex items-end gap-1.5"
+                                          className="mt-1 select-none inline-flex items-end gap-1.5 time-pad-mins"
                                           style={{ whiteSpace: "nowrap", paddingRight: "0.80em", lineHeight: 1 }}
                                         >
                                           <span
@@ -492,9 +497,9 @@ export default function CronogramaPage() {
                                           </span>
                                         </div>
                                       ) : timeLabel ? (
-                                        /* Sin minutos: HH relleno + AM/PM del MISMO tamaño */
+                                        /* Sin minutos: HH + AM/PM mismo tamaño */
                                         <div
-                                          className="mt-1 select-none inline-flex items-end gap-2"
+                                          className="mt-1 select-none inline-flex items-end gap-2 time-pad-hour"
                                           style={{ whiteSpace: "nowrap", paddingRight: "0.60em", lineHeight: 1 }}
                                         >
                                           <span
@@ -568,6 +573,12 @@ export default function CronogramaPage() {
         [data-radix-accordion-trigger] { text-decoration: none !important; }
         [data-radix-accordion-trigger]:hover { text-decoration: none !important; }
         [data-radix-accordion-trigger] svg { display: none !important; }
+
+        /* Solo pantallas grandes (≥1280px): más respiro a la derecha del bloque de hora */
+        @media (min-width: 1280px) {
+          .time-pad-mins { padding-right: 1.8em !important; }
+          .time-pad-hour { padding-right: 1.6em !important; }
+        }
       `}</style>
     </div>
   )
