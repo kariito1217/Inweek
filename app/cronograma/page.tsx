@@ -4,28 +4,34 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
-import { ArrowLeft, Sparkles } from "lucide-react"
+import { ArrowLeft, Sparkles, ExternalLink } from "lucide-react"
 import { useMemo, useState } from "react"
 
-/* ===================== DATOS ORIGINALES (SIN CAMBIOS) ===================== */
-const facultades = [
+/* ===================== TIPOS ===================== */
+type Evento = { titulo: string; descripcion: string; fecha: string; hora: string; lugar: string; enlace?: string }
+type Facultad = { id: string; nombre: string; descripcion: string; eventos: Evento[] }
+
+/* ===================== DATOS ===================== */
+const facultades: Facultad[] = [
   {
     id: "FCSH Norte",
     nombre: "Facultad de Ciencias Sociales y Humanas",
     descripcion: "Sede Norte",
     eventos: [
-      { titulo: "Exposición fotográfica Encuentro Cultura Visual", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "Permanente toda la semana", lugar: "sala de exposiciones biblioteca" },
+      { titulo: "Exposición fotográfica: SINERGIA VISUAL 2° EDICION:  INMIGRACION EXPANDIDA. Reflexion visual sobre el desplazamiento en el contexto colombiano", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "Permanente toda la semana", lugar: "sala de exposiciones biblioteca" },
       { titulo: "Encuentro Cultura Visual: Fotografía Creativa y Experimental", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Estación 1: Salón 301" },
-      { titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", descripcion: "", fecha: "Martes 21 de Octubre", hora: "2:00 p.m", lugar: "Salón A108" },
+      { titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", descripcion: "", fecha: "Martes 21 de Octubre", hora: "2:00 p.m", lugar: "Salón E102" },
       { titulo: "Entramado Social: Contar la experiencia - Práctica en Trabajo Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "8:00 a.m", lugar: "PARQUE DEL MONJE" },
-      { titulo: "Caleidoscopio Social: Historias que sanan: la comunicación social como punete de resiliencia comunitaria", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Auditorio Amarillo" },
+      { titulo: "Caleidoscopio Social: Historias que sanan: la comunicación social como puente de resiliencia comunitaria", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Auditorio Amarillo" },
       { titulo: "Caleidoscopio Social: De la cámara al aula: miradas en práctica", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Salon C208" },
-      { titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Salón A108" },
+      { titulo: "Conversatorio y lanzamiento de libro: Confesiones Inéditas del comandante 1", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Biblioteca - Sala Panesso" },
+      { titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Salón E102" },
       { titulo: "Caleidoscopio Social: Narración y Deporte: Voces en Vivo", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Auditorio amarillo" },
-      { titulo: "Caleidoscopio Social: Samaritanos de la Calle: Ecos y Relatos de Vida", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Auditorio Rojo" },
-      { titulo: "Encuentro Cultura Visual: Convergencias Académicas: ACTITUD & SAPIENTIA Encuentro de saberes, perspectivas y disciplinas que representan la producción intelectual UniCamacho", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Biblioteca" },
-      { titulo: "Biodiversidad (miniCOP)", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "", lugar: "Stand (Eco Raíces)" },
-      { titulo: "Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "9:00 a.m. - 2:00 p.m.", lugar: "Av. Estación 1 - Sala MAC" },
+      { titulo: "Caleidoscopio Social: Voces que renacen en la calle", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "2:00 p.m", lugar: "Auditorio Rojo" },
+      { titulo: "Encuentro Cultura Visual: Convergencias Académicas: Encuentro de saberes, perspectivas y disciplinas que representan la producción intelectual UniCamacho.", descripcion: "", fecha: "Miercoles 22 de Octubre", hora: "2:00 p.m", lugar: "Biblioteca - Sala Panesso" },
+      { titulo: "Entramado Social “Memoria, cultura y comunidad: historias que nos conectan desde el tejido de la investigación”", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m", lugar: "Salón C107" },
+      { titulo: "Entramado Social El proyecto de vida en el entramado Social", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Salón E102" },
+      { titulo: "Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-", descripcion: "", fecha: "Sábado 25 de Octubre", hora: "8:00 a.m", lugar: "Estación 1: Sala MAC" },
     ],
   },
   {
@@ -55,13 +61,13 @@ const facultades = [
     nombre: "Facultad de Ciencias Sociales y Humanas",
     descripcion: "Virtual",
     eventos: [
-      { titulo: "Trabajo Social y Construcción de Comunidad en los Territorios", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Zoom" },
-      { titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Zoom" },
-      { titulo: "4to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom" },
-      { titulo: "Presentación de trabajos de grado con menciones en Comunicación Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom" },
-      { titulo: "Conectando con comunidades desde la investigación en Trabajo Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom" },
-      { titulo: "5to. Encuentro interinstitucional de trabajos de grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom" },
-      { titulo: "Comunicar para Crecer: Estrategias Corporativas en el Campo Profesional", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom" },
+      { titulo: "Trabajo Social y Construcción de Comunidad en los Territorios", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "" },
+      { titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
+      { titulo: "4to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "" },
+      { titulo: "Presentación de trabajos de grado con menciones en Comunicación Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
+      { titulo: "Conectando con comunidades desde la investigación en Trabajo Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
+      { titulo: "5to. Encuentro interinstitucional de trabajos de grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "" },
+      { titulo: "Comunicar para Crecer: Estrategias Corporativas en el Campo Profesional", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
     ],
   },
   {
@@ -143,8 +149,7 @@ const facultades = [
   },
 ]
 
-/* ===================== HELPERS (agrupación + limpieza) ===================== */
-type Evento = { titulo: string; descripcion: string; fecha: string; hora: string; lugar: string }
+/* ===================== HELPERS ===================== */
 type SedeKey = "Sede Norte" | "Sede Sur" | "Virtual"
 const SEDES: SedeKey[] = ["Sede Norte", "Sede Sur", "Virtual"]
 
@@ -172,15 +177,10 @@ function cleanDescripcion(desc: string | undefined): string {
     .trim()
 }
 
-/**
- * parseFechaHora:
- * - Toma SOLO la hora de inicio si viene un rango, heredando AM/PM de la parte final si falta.
- * - Devuelve timeMain (HH o HH:MM), meridiem y flags.
- */
+/** parseFechaHora */
 function parseFechaHora(fecha: string, hora: string) {
   const day = (fecha.match(/(\d{1,2})/)?.[1] ?? "").padStart(2, "0")
 
-  // Mes -> "OCT", etc.
   let month = ""
   for (const key of Object.keys(MONTHS)) {
     if (fecha.toLowerCase().includes(key)) { month = MONTHS[key]; break }
@@ -202,16 +202,14 @@ function parseFechaHora(fecha: string, hora: string) {
     const mmCap = m1[2] ?? ""
     const mm = mmCap.padStart(2, "0")
     let ap = (m1[3] ?? "").toUpperCase()
-    if (!ap && m2 && m2[3]) ap = m2[3].toUpperCase() // hereda AM/PM
+    if (!ap && m2 && m2[3]) ap = m2[3].toUpperCase()
 
     meridiem = ap === "A" ? "AM" : "PM"
     hasMinutes = mmCap !== "" && mm !== "00"
     timeMain = hasMinutes ? `${hh}:${mm}` : `${hh}`
   }
 
-  // Construcción compacta de fallback de una sola línea (p.ej. 7PM)
   const timeLabel = timeMain ? `${timeMain}${hasMinutes ? "" : meridiem}` : ""
-
   return { day, month, timeLabel, timeMain, meridiem, hasMinutes, rawHora: raw }
 }
 
@@ -240,7 +238,7 @@ function useFacultadesAgrupadas() {
       }
 
       const tabs = SEDES.filter((s) => buckets[s].length > 0)
-      return { nombre: grupo.nombre, buckets, tabs }
+      return { nombre: grupo.nombre, buckets, tabs, colecciones: grupo.colecciones }
     })
   }, [])
 }
@@ -276,6 +274,55 @@ export default function CronogramaPage() {
     }
     window.setTimeout(align, delay)
     window.setTimeout(align, delay + fixDelay)
+  }
+
+  const isVirtualLugar = (lugar?: string) => /zoom|meet|teams|virtual/i.test(lugar ?? "")
+
+  const renderLugarConPestaña = (lugar: string, enlace?: string) => {
+    const match = lugar.match(/(zoom|meet|teams)/i)
+    if (!match) {
+      return (
+        <p className="text-black font-semibold leading-snug whitespace-pre-line">
+          {lugar}
+        </p>
+      )
+    }
+
+    const before = lugar.slice(0, match.index!)
+    const word = match[0]
+    const after = lugar.slice(match.index! + word.length)
+
+    const Chip = (
+      <span
+        className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-extrabold ml-2 border`}
+        style={{
+          borderColor: enlace ? LIME : "#bbb",
+          backgroundColor: enlace ? "rgba(181,255,0,0.92)" : "#e9e9e9",
+          color: enlace ? "#102400" : "#666",
+          boxShadow: enlace ? "0 8px 18px rgba(181,255,0,0.35)" : "none",
+          transform: "translateY(-1px)",
+        }}
+      >
+        Abrir <ExternalLink className="w-3.5 h-3.5" />
+      </span>
+    )
+
+    return (
+      <p className="text-black font-semibold leading-snug whitespace-pre-line">
+        {before}
+        <span className="font-extrabold uppercase" style={{ color: PINK }}>
+          {word}
+        </span>
+        {enlace ? (
+          <Link href={enlace} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${word}`}>
+            {Chip}
+          </Link>
+        ) : (
+          <span title="Sin enlace definido">{Chip}</span>
+        )}
+        {after}
+      </p>
+    )
   }
 
   return (
@@ -357,8 +404,8 @@ export default function CronogramaPage() {
                                 onClick={() => setTabByFaculty((s) => ({ ...s, [accId]: tab }))}
                                 className="rounded-full text-sm md:text-base font-extrabold px-5 py-2 border transition-all duration-150 cursor-pointer hover:-translate-y-[1px]"
                                 style={{
-                                  borderColor: selectedTab === tab ? LIME : PINK_700,
-                                  backgroundColor: selectedTab === tab ? "rgba(181,255,0,0.9)" : PINK,
+                                  borderColor: selectedTab === tab ? "#b5ff00" : "#e00068",
+                                  backgroundColor: selectedTab === tab ? "rgba(181,255,0,0.9)" : "#ff0074",
                                   color: selectedTab === tab ? "#102400" : "#fff",
                                   boxShadow: selectedTab === tab ? "0 10px 20px rgba(181,255,0,0.35)" : "0 8px 18px rgba(255,0,116,0.35)",
                                 }}
@@ -426,50 +473,47 @@ export default function CronogramaPage() {
 
                                       {/* Hora */}
                                       {hasMinutes ? (
-                                        // Minutos: HH:MM (outline) + "PM/AM" pequeño al ladito
+                                        /* Con minutos: HH:MM relleno + AM/PM pequeño (¡sin cambios!) */
                                         <div
                                           className="mt-1 select-none inline-flex items-end gap-1.5"
                                           style={{ whiteSpace: "nowrap", paddingRight: "0.80em", lineHeight: 1 }}
                                         >
                                           <span
                                             className="font-black uppercase block text-[36px] md:text-[40px] leading-none"
-                                            style={{
-                                              color: "transparent",
-                                              WebkitTextStroke: "2.5px #ff0074",
-                                              letterSpacing: "0",
-                                            }}
+                                            style={{ color: "#ff0074", letterSpacing: "0" }}
                                           >
                                             {timeMain}
                                           </span>
                                           <span
                                             className="font-black uppercase"
-                                            style={{
-                                              color: "#ff0074",
-                                              fontSize: "16px",
-                                              lineHeight: "1",
-                                              transform: "translateY(-1px)", // sutil ajuste vertical
-                                            }}
+                                            style={{ color: "#ff0074", fontSize: "16px", lineHeight: "1", transform: "translateY(-1px)" }}
                                           >
                                             {meridiem}
                                           </span>
                                         </div>
                                       ) : timeLabel ? (
-                                        // Sin minutos: una sola línea como antes (ej. 7PM)
-                                        <span
-                                          className={`font-black leading-none uppercase block ${
-                                            timeIsWide ? "text-[30px] md:text-[36px]" : "text-[36px] md:text-[40px]"
-                                          }`}
-                                          style={{
-                                            color: "transparent",
-                                            WebkitTextStroke: timeIsWide ? "2px #ff0074" : "2.5px #ff0074",
-                                            whiteSpace: "nowrap",
-                                            lineHeight: "1",
-                                            paddingRight: "0.40em",
-                                            letterSpacing: "0",
-                                          }}
+                                        /* Sin minutos: HH relleno + AM/PM del MISMO tamaño */
+                                        <div
+                                          className="mt-1 select-none inline-flex items-end gap-2"
+                                          style={{ whiteSpace: "nowrap", paddingRight: "0.60em", lineHeight: 1 }}
                                         >
-                                          {timeLabel}
-                                        </span>
+                                          <span
+                                            className={`font-black uppercase block ${
+                                              timeIsWide ? "text-[30px] md:text-[36px]" : "text-[36px] md:text-[40px]"
+                                            }`}
+                                            style={{ color: "#ff0074", letterSpacing: "0", lineHeight: "1" }}
+                                          >
+                                            {timeMain}
+                                          </span>
+                                          <span
+                                            className={`font-black uppercase block ${
+                                              timeIsWide ? "text-[30px] md:text-[36px]" : "text-[36px] md:text-[40px]"
+                                            }`}
+                                            style={{ color: "#ff0074", lineHeight: "1" }}
+                                          >
+                                            {meridiem}
+                                          </span>
+                                        </div>
                                       ) : showHoraTexto ? (
                                         <span
                                           className="text-[14px] md:text-[15px] font-black leading-tight uppercase break-normal whitespace-normal"
@@ -481,14 +525,18 @@ export default function CronogramaPage() {
                                     </div>
                                   </div>
 
-                                  {/* Lugar 18px */}
+                                  {/* LUGAR con chip “Abrir” (único CTA) */}
                                   <div className="text-[18px]">
                                     <p className="font-black uppercase mb-1" style={{ color: "#ff0074" }}>
                                       LUGAR
                                     </p>
-                                    <p className="text-black font-semibold leading-snug whitespace-pre-line">
-                                      {evento.lugar}
-                                    </p>
+                                    {isVirtualLugar(evento.lugar)
+                                      ? renderLugarConPestaña(evento.lugar, evento.enlace)
+                                      : (
+                                        <p className="text-black font-semibold leading-snug whitespace-pre-line">
+                                          {evento.lugar}
+                                        </p>
+                                      )}
                                   </div>
                                 </div>
                               </div>
