@@ -102,12 +102,19 @@ const facultades: Facultad[] = [
   {
     id: "DAI",
     nombre: "Decanato Asociado de Investigaciones",
-    descripcion: "Norte y Sur",
+    descripcion: "Norte",
     eventos: [
-      { titulo: "Conversatorio: La universidad del futuro, la que todos queremos", descripcion: "Sede Sur", fecha: "Martes 21 de Octubre", hora: "8:00 a.m - 10:00 a.m", lugar: "Auditorio 4" },
-      { titulo: "Encuentro Cientifico y Educativo de Experiencias Investigativas - ECE2I", descripcion: "Sede Norte", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m", lugar: "Salones" },
-      { titulo: "Stand de grupos y Semilleros", descripcion: "Sede Norte", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m - 8:00 p.m", lugar: "Stand (Ágora)" },
-      { titulo: "Reconocimientos del DAI", descripcion: "Sede Sur", fecha: "Lunes 20 de Octubre", hora: "09:00 a.m", lugar: "Aula Máxima" },
+      { titulo: "Encuentro Cientifico y Educativo de Experiencias Investigativas - ECE2I", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m", lugar: "Salones" },
+      { titulo: "Stand de grupos y Semilleros", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m - 8:00 p.m", lugar: "Stand (Ágora)" },  
+    ],
+  },
+   {
+    id: "DAI",
+    nombre: "Decanato Asociado de Investigaciones",
+    descripcion: "Sur",
+    eventos: [
+      { titulo: "Reconocimientos del DAI", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "09:00 a.m", lugar: "Aula Máxima" },
+      { titulo: "Conversatorio: La universidad del futuro, la que todos queremos", descripcion: "", fecha: "Martes 21 de Octubre", hora: "8:00 a.m - 10:00 a.m", lugar: "Auditorio 4" },
     ],
   },
   {
