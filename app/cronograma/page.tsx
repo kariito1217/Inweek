@@ -51,7 +51,7 @@ const facultades: Facultad[] = [
       { titulo: "Caleidoscopio Social: Tejiendo la verdad (podcats)", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Auditorio 4" },
       { titulo: "Encuentro Cultura Visual: Portafolios vivos, ideas en movimiento", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Innova Lab" },
       { titulo: "Encuentro Cultura Visual: Ilustrar desde la mente hasta el papel", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Salón AL114" },
-      { titulo: "Encuentro Cultura Visual: LABORAR EN DISEÑO. Experiencias con egresados", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "11:00 p.m", lugar: "Innova Lab" },
+      { titulo: "Encuentro Cultura Visual: LABORAR EN DISEÑO. Experiencias con egresados", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "11:00 a.m", lugar: "Innova Lab" },
       { titulo: "Encuentro Cultura Visual: Conexiones Visuales. Lanzamiento de la plataforma de interaccion con los egresados del programa", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "", lugar: "Innova Lab" },
       { titulo: "Por el Derecho a la Lectura en tiempos de redes sociales e inteligencia artificial", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Sala de Debates" },
       { titulo: "Biodiversidad Ambiental: El rio cuenta su historia", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Auditorio 5" },
