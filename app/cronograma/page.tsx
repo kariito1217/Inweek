@@ -69,12 +69,12 @@ const facultades: Facultad[] = [
     descripcion: "Virtual",
     eventos: [
       { titulo: "Trabajo Social y Construcción de Comunidad en los Territorios", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "https://ruavedu.zoom.us/j/81166736322?pwd=YDYtGHTkZjTVzFvDkkRPwBhWyb7Dhc.1" },
-      { titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
-      { titulo: "4to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "" },
-      { titulo: "Presentación de trabajos de grado con menciones en Comunicación Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
-      { titulo: "Conectando con comunidades desde la investigación en Trabajo Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
-      { titulo: "5to. Encuentro interinstitucional de trabajos de grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "" },
-      { titulo: "Comunicar para Crecer: Estrategias Corporativas en el Campo Profesional", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "" },
+      { titulo: "Comunica y transforma desde la Investigación: Retos de un Trabajo de Grado", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "https://ruavedu.zoom.us/j/85981011649?pwd=1ARjn3BssO6QWjHAS0aopisaGWbPJG.1" },
+      { titulo: "5to. Encuentro Interinstitucional de Trabajos de Grado en Diseño Visual", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "10:00 a.m", lugar: "Zoom", enlace: "https://ruavedu.zoom.us/j/82664933747?pwd=bUpaUrfLSW9tdFYaaYFehCGqkVTIaS.1" },
+      { titulo: "Conectando con comunidades desde la investigación en Trabajo Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "https://ruavedu.zoom.us/j/86516190073?pwd=6V4i7opRNccOiqGSUVOd58dNTD80tG.1" },
+      { titulo: "Justicia en Primera Plana: Comunicación y Veredicto", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "https://ruavedu.zoom.us/j/82028973115?pwd=DcKggEbO72OCoolakXLTQprq1ocppX.1" },
+      { titulo: "Historias que inspiran: la voz de nuestros egresados", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "https://ruavedu.zoom.us/j/85877273456?pwd=TcsZVVZGArOWWorc1npRvDRvSaN5ut.1" },
+      { titulo: "Comunicar para Crecer: Estrategias Corporativas en el Campo Profesional", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "6:30 p.m", lugar: "Zoom", enlace: "https://ruavedu.zoom.us/j/88209821173?pwd=Vxw5Vhsjl6qoCT2lDBxnlGaTVu00Pj.1" },
     ],
   },
   {
