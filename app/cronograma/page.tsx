@@ -44,6 +44,7 @@ const facultades: Facultad[] = [
       { titulo: "ONE TO ONE", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Sala de Debates / P213" },
       { titulo: "Inauguración Caleidoscopio Social: Cuando las Voces se Cruzan y los Caminos se Unen", descripcion: "", fecha: "Martes 21 de Octubre", hora: "2:00 p.m", lugar: "Aula Máxima" },
       { titulo: "Tejiendo voces y vinculos: El impacto de la comunicación en la vida comunitaria", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Salón AL 119" },
+      { titulo: "Memoria Histórica: “Trayectoria del Programa de Trabajo Social y la Estrategia de Acompañamiento Socioemocional en UNICAMACHO”", descripcion: "", fecha: "Miercoles 22 de Octubre", hora: "10:00 a.m", lugar: "Aula Máxima" },
       { titulo: "Entramado Social: Voces que tejen: narrativas de los estudiantes en comunidad”", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "6:30 p.m", lugar: "Aula Máxima" },
       { titulo: "Marketing Digital: Comunicación Estrategica", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m", lugar: "Salón P203" },
       { titulo: "El arte de construir historia en la sociedad", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Auditorio 1" },
