@@ -84,8 +84,8 @@ const facultades: Facultad[] = [
     descripcion: "Sede Norte",
     eventos: [
       { titulo: "Carrera de Drones con simulador", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m - 2:00 p.m", lugar: "Tarima del Agora" },
-      { titulo: "Taller de prototipado - ITMedia-Grintic", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Sala de sistemas" },
       { titulo: "Muestra Modelos Lean Manufactúring Dispositivos exoesqueleticos Planta de procesamiento de Cacao Biocombustible apartir de la yuca", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m. - 7:00p.m", lugar: "Stand (SEGESTOP)" },
+      { titulo: "Taller de prototipado - ITMedia-Grintic", descripcion: "", fecha: "Martes 21 de Octubre", hora: "6:30 p.m", lugar: "Sala de sistemas" },
     ],
   },
   {
