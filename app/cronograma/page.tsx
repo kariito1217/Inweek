@@ -394,11 +394,13 @@ export default function CronogramaPage() {
                   style={{ textDecoration: "none" }}
                 >
                   <div
-                    className="w-full border border-white rounded-[28px] px-7 lg:px-9 min-h-[96px] sm:min-h-[104px] lg:min-h-[112px]
-                               flex items-center justify-between bg-[rgba(255,255,255,0.04)]
-                               hover:-translate-y-[4px] hover:shadow-[0_14px_28px_rgba(0,0,0,0.28)] transition-all duration-200"
+                   className="w-full border border-white rounded-[28px] px-7 lg:px-9 py-4 sm:min-h-[104px] lg:min-h-[112px]
+           flex items-center justify-between bg-[rgba(255,255,255,0.04)]
+           hover:-translate-y-[4px] hover:shadow-[0_14px_28px_rgba(0,0,0,0.28)] transition-all duration-200"
+
                   >
-                    <span className="text-white font-extrabold text-2xl md:text-3xl leading-none select-none">
+                    <span className="text-white font-extrabold text-2xl md:text-3xl leading-tight md:leading-none break-words select-none">
+
                       {grupo.nombre}
                     </span>
                   </div>
