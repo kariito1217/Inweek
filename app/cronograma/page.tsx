@@ -127,11 +127,19 @@ const facultades: Facultad[] = [
   {
     id: "FCE y PLE",
     nombre: "Facultad de Ciencias Empresariales & Programa de Liderazgo y Emprendimiento",
-    descripcion: "Norte y Sur",
+    descripcion: "Sede Norte",
     eventos: [
-      { titulo: "Cátedra Empresarial", descripcion: "FCE \nSede Sur", fecha: "Martes 21 de Octubre", hora: "6:00 p.m - 8:00 p.m", lugar: "Aula Máxima" },
-      { titulo: "XVII Muestra Empresarial Inauguración muestra y muestra durante todo el día (participan todas las facultades)", descripcion: "FCE & PLE \nSede Norte", fecha: "Viernes 24 de Octubre", hora: "10:00 a.m - 8:00 p.m", lugar: "Stand (Ágora)" },
-      { titulo: "XVII Muestra Empresarial Unicamacho (todas las Facultades)", descripcion: "FCE & PLE \nSede Norte", fecha: "Sábado 25 de Octubre", hora: "8:00 a.m - 4:00 p.m", lugar: "Stand (Ágora)" },
+      { titulo: "XVII Muestra Empresarial Inauguración muestra y muestra durante todo el día (participan todas las facultades)", descripcion: "FCE & PLE \nSede Norte", fecha: "Viernes 24 de Octubre", hora: "10:00 a.m", lugar: "Stand (Ágora)" },
+      { titulo: "XVII Muestra Empresarial Unicamacho (todas las Facultades)", descripcion: "FCE & PLE \nSede Norte", fecha: "Sábado 25 de Octubre", hora: "8:00 a.m", lugar: "Stand (Ágora)" },
+    ],
+  },
+  {
+    id: "FCE y PLE",
+    nombre: "Facultad de Ciencias Empresariales & Programa de Liderazgo y Emprendimiento",
+    descripcion: "Sede Sur",
+    eventos: [
+    { titulo: "Cátedra Empresarial", descripcion: "FCE \nSede Sur", fecha: "Martes 21 de Octubre", hora: "6:00 p.m", lugar: "Aula Máxima" },
+    { titulo: "Cátedra Empresarial. Sostenibilidad como Ventaja Competitiva: De la Responsabilidad social a la Innovación Empresarial en el Valle del Cauca", descripcion: "FCE \nSede Sur", fecha: "Viernes 24 de Octubre", hora: "6:30 p.m", lugar: "Aula Máxima" },
     ],
   },
   {
