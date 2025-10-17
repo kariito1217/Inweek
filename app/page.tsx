@@ -20,7 +20,7 @@ export default function HomePage() {
           xl:bg-cover xl:bg-center
         "
         style={{
-          backgroundImage: "url('/images/inicioInweek.jpg')",
+          backgroundImage: "url('/images/2222 (1).jpg')",
           backgroundColor: "#FF0080",
         }}
       />
