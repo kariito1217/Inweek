@@ -49,7 +49,7 @@ const facultades: Facultad[] = [
       { titulo: "Marketing Digital: Comunicación Estrategica", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "8:00 a.m", lugar: "Salón P203" },
       { titulo: "El arte de construir historia en la sociedad", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Auditorio 1" },
       { titulo: "Caleidoscopio Social: Tejiendo Historia con Hilos de Creatividad", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Biblioteca" },
-      { titulo: "Caleidoscopio Social: Tejiendo la verdad (podcats)", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Auditorio 4" },
+      { titulo: "Caleidoscopio Social: Tejiendo la verdad (podcast)", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Auditorio 4" },
       { titulo: "Encuentro Cultura Visual: Portafolios vivos, ideas en movimiento", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Innova Lab" },
       { titulo: "Encuentro Cultura Visual: Ilustrar desde la mente hasta el papel", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "10:00 a.m", lugar: "Salón AL114" },
       { titulo: "Encuentro Cultura Visual: LABORAR EN DISEÑO. Experiencias con egresados", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "11:00 a.m", lugar: "Innova Lab" },
