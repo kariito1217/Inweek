@@ -374,7 +374,7 @@ export default function CronogramaPage() {
 
         <h1 className="text-white font-black text-4xl sm:text-5xl">CRONOGRAMA</h1>
         <p className="mt-4 text-white/95 font-semibold text-xl md:text-2xl leading-snug">
-          Explora todos los eventos organizados durante la Semana de Innovación del <b>20 al 25 de octubre</b>.
+          Explora todos los eventos organizados durante la Semana de Investigación del <b>20 al 25 de octubre</b>.
         </p>
       </div>
 
