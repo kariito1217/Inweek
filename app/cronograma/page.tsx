@@ -58,7 +58,7 @@ const facultades: Facultad[] = [
       { titulo: "Biodiversidad Ambiental: El rio cuenta su historia", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "2:00 p.m", lugar: "Auditorio 5" },
       { titulo: "Caleidoscopio Social: ¿Y aquí como nos cuidamos?", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "6:30 p.m", lugar: "Auditorio 5" },
       { titulo: "Ecos de Transformación", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "6:30 p.m", lugar: "Auditorio 4" },
-      { titulo: "Entramado Social: Detección de las violencias familiares", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "6:30 p.m", lugar: "AL 119" },
+      { titulo: "Entramado Social: Detección de las violencias familiares", descripcion: "", fecha: "Jueves 23 de Octubre", hora: "8:30 a.m", lugar: "AL 119" },
       { titulo: "Tejidos Vivos del Territorio: Narrativas de inclusión, superación, sostenibilidad y creación", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "10:00 a.m", lugar: "Aula Máxima"},
       { titulo: "Taller de Narrativas Digitales Multiplataforma: Herramientas CapCut", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "2:30 p.m", lugar: "SALA 101S"},
       { titulo: "FCSH - Encuentro Cultura Visual: Derivas Alrededor de la Memoria: Taller Audiovisual Experimental - Universidad San Mateo, Bogotá. Invitada-", descripcion: "", fecha: "Viernes 24 de Octubre", hora: "9:00 a.m", lugar: "salida externa COMUNA 20 Y MUSEO POPULAR DE SILOÉ"},
