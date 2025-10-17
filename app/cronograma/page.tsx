@@ -98,7 +98,7 @@ const facultades: Facultad[] = [
       { titulo: "Taller Manufactura Digital", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m - 11:00 a.m", lugar: "Auditorio 4" },
       { titulo: "El viaje de la IA: descubre, inspírate y juega", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m - 11:00 a.m", lugar: "Sala de Sistemas" },
       { titulo: "Implementando una Arquitectura Multitenant Escalable y Eficiente con NestJS y Docker", descripcion: "", fecha: "Martes 21 de Octubre", hora: "11:00 a.m - 12:00 p.m", lugar: "Auditorio 5" },
-      { titulo: "Taller de Energía Solar en Acción: Instalación fotovoltaica paso a paso", descripcion: "", fecha: "Martes 21 de Octubre", hora: "11:00", lugar: "Laboratorio Bloque 2" },
+      { titulo: "Taller de Energía Solar en Acción: Instalación fotovoltaica paso a paso", descripcion: "", fecha: "Martes 21 de Octubre", hora: "11:00 a.m", lugar: "Laboratorio Bloque 2" },
     ],
   },
   {
