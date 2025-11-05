@@ -18,7 +18,7 @@ const facultades: Facultad[] = [
     nombre: "Facultad de Ciencias Sociales y Humanas",
     descripcion: "Sede Norte",
     eventos: [
-      { titulo: "Exposición fotográfica: SINERGIA VISUAL 2° EDICION:  INMIGRACION EXPANDIDA. Reflexion visual sobre el desplazamiento en el contexto colombiano", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "Permanente toda la semana", lugar: "sala de exposiciones biblioteca" },
+      { titulo: "HOLAExposición fotográfica: SINERGIA VISUAL 2° EDICION:  INMIGRACION EXPANDIDA. Reflexion visual sobre el desplazamiento en el contexto colombiano", descripcion: "", fecha: "Lunes 20 de Octubre", hora: "Permanente toda la semana", lugar: "sala de exposiciones biblioteca" },
       { titulo: "Encuentro Cultura Visual: Fotografía Creativa y Experimental", descripcion: "", fecha: "Martes 21 de Octubre", hora: "10:00 a.m", lugar: "Estación 1: Salón 301" },
       { titulo: "Encuentro Cultura Visual: Taller Ilustra, sin ilustrar", descripcion: "", fecha: "Martes 21 de Octubre", hora: "2:00 p.m", lugar: "Salón E102" },
       { titulo: "Entramado Social: Contar la experiencia - Práctica en Trabajo Social", descripcion: "", fecha: "Miércoles 22 de Octubre", hora: "8:00 a.m", lugar: "PARQUE DEL MONJE" },
